@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingTop="0dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="30dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="111dp"
+        app:srcCompat="@mipmap/logo_foreground" />
+
+    <TextView
+        android:id="@+id/titleCadastroDev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Cadastre-se"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/infoCadastroDev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/poppins"
+        android:text="Please enter your Email ID to Sign Up."
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/lblNomeDev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Nome"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txtNomeDev"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#fff"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:hint="Nome do desenvolvedor/ equipe"
+        android:inputType="text"
+        android:textColor="#fff"
+        android:textColorHint="#4C4C4C"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/lblDataDev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Data de nascimento"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txtDataDev"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#fff"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:hint="00/00/0000"
+        android:inputType="datetime|date"
+        android:textColor="#fff"
+        android:textColorHint="#4C4C4C"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/lblSobreDev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Sobre"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txtSobreDev"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#fff"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:gravity="top|left"
+        android:hint="Sobre você"
+        android:inputType="text"
+        android:textColor="#fff"
+        android:textColorHint="#4C4C4C"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/errorCadastroDev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/poppins"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#FF2525"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btnNextDev"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/gradient_button"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:text="Next"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null" />
+</LinearLayout>
