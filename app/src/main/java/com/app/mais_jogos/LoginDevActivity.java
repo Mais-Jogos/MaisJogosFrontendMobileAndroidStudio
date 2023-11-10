@@ -119,6 +119,7 @@ public class LoginDevActivity extends AppCompatActivity {
                     .build();
             Call call = client.newCall(request);
             Log.i(CADASTRO_DEV, "Request feita no servidor");
+            Log.i(CADASTRO_DEV, devJson);
             try{
                 Response response = call.execute();
                 sucessLoginDev.setText("Cadastrado com sucesso!");
