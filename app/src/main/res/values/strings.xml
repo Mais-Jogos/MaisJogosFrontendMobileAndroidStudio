@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">mais-jogos</string>
+    <string name="subtitulo_cadastro">Please enter your Email ID to Sign Up.</string>
+    <string name="cadastre_se">Cadastre-se</string>
+    <string name="nome">Nome</string>
+    <string name="nomedev">Nome do desenvolvedor/ equipe</string>
+    <string name="data_nasc">Data de nascimento</string>
+    <string name="data_format">00/00/0000</string>
+    <string name="sobre">Sobre</string>
+    <string name="logo_jogos">Logo +Jogos</string>
+    <string name="next">Next</string>
+    <string name="sobre_voc">Sobre você</string>
+    <string name="email">Email</string>
+    <string name="email_format">dev@gmail.com</string>
+    <string name="senha">Senha</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+    <string name="cadastrar">Cadastrar</string>
 </resources>

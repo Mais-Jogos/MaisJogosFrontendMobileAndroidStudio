@@ -1,7 +1,6 @@
 package com.app.mais_jogos;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Dev implements Serializable {
     private String nome;

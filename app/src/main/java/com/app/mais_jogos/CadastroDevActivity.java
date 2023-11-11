@@ -1,5 +1,6 @@
 package com.app.mais_jogos;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
@@ -12,11 +13,6 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class CadastroDevActivity extends AppCompatActivity {
 
@@ -27,6 +23,7 @@ public class CadastroDevActivity extends AppCompatActivity {
     EditText sobreDev;
     Button btnNextDev;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +49,7 @@ public class CadastroDevActivity extends AppCompatActivity {
         errorCadastroDev = findViewById(R.id.errorCadastroDev);
 
         btnNextDev.setOnClickListener(e -> {
-            if (validar() == true){
+            if (validar()){
                 errorCadastroDev.setText("");
                 Dev d = getInfoDev();
                 Intent loginDev = new Intent(this, LoginDevActivity.class);
@@ -65,17 +62,12 @@ public class CadastroDevActivity extends AppCompatActivity {
     }
 
     private boolean validar(){
-        if (nomeDev.getText().length() != 0 &&
-            dataDev.getText().length() != 0 &&
-            sobreDev.getText().length() != 0){
-            return true;
-        }else{
-            return false;
-        }
+        return nomeDev.getText().length() != 0 &&
+                dataDev.getText().length() != 0 &&
+                sobreDev.getText().length() != 0;
     }
     private Dev getInfoDev(){
         Dev d = new Dev();
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         d.setNome(nomeDev.getText().toString());
         d.setDataNasc(dataDev.getText().toString());
         d.setSobre(sobreDev.getText().toString());

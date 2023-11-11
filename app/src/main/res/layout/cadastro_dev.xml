@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
@@ -14,14 +15,15 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="111dp"
-        app:srcCompat="@mipmap/logo_foreground" />
+        app:srcCompat="@mipmap/logo_foreground"
+        android:contentDescription="@string/logo_jogos" />
 
     <TextView
         android:id="@+id/titleCadastroDev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium"
-        android:text="Cadastre-se"
+        android:text="@string/cadastre_se"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="30sp" />
@@ -32,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/poppins"
-        android:text="Please enter your Email ID to Sign Up."
+        android:text="@string/subtitulo_cadastro"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="14sp" />
@@ -42,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:text="Nome"
+        android:text="@string/nome"
         android:textColor="#FFFFFF"
         android:textSize="14sp" />
 
@@ -54,18 +56,19 @@
         android:backgroundTint="#fff"
         android:ems="10"
         android:fontFamily="@font/poppins"
-        android:hint="Nome do desenvolvedor/ equipe"
+        android:hint="@string/nomedev"
         android:inputType="text"
         android:textColor="#fff"
         android:textColorHint="#4C4C4C"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/lblDataDev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:text="Data de nascimento"
+        android:text="@string/data_nasc"
         android:textColor="#FFFFFF"
         android:textSize="14sp" />
 
@@ -77,18 +80,19 @@
         android:backgroundTint="#fff"
         android:ems="10"
         android:fontFamily="@font/poppins"
-        android:hint="00/00/0000"
+        android:hint="@string/data_format"
         android:inputType="datetime|date"
         android:textColor="#fff"
         android:textColorHint="#4C4C4C"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/lblSobreDev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:text="Sobre"
+        android:text="@string/sobre"
         android:textColor="#FFFFFF"
         android:textSize="14sp" />
 
@@ -101,11 +105,13 @@
         android:ems="10"
         android:fontFamily="@font/poppins"
         android:gravity="top|left"
-        android:hint="Sobre você"
-        android:inputType="text"
+        android:hint="@string/sobre_voc"
         android:textColor="#fff"
         android:textColorHint="#4C4C4C"
-        android:textSize="14sp" />
+        android:inputType="textMultiLine"
+        android:textSize="14sp"
+        android:autofillHints=""
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:id="@+id/errorCadastroDev"
@@ -129,9 +135,10 @@
         android:background="@drawable/gradient_button"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
-        android:text="Next"
+        android:text="@string/next"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@null" />
+
 </LinearLayout>
