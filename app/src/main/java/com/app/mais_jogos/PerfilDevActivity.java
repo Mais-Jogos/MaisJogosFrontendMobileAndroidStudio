@@ -29,7 +29,8 @@ public class PerfilDevActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.perfil_dev);
-
+        SobreDev = findViewById(R.id.txtPerfilNomeDev);
+        NomeDev = findViewById(R.id.txtPerfilNomeDev);
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() ->{
             OkHttpClient client = new OkHttpClient();
@@ -42,17 +43,14 @@ public class PerfilDevActivity extends AppCompatActivity {
                 JsonObject convertObject = gson.fromJson(resposta, JsonObject.class);
                 Log.i(PERFIL_DEV, "Dev resposta: " + resposta);
                 desenvolvedor = gson.fromJson(resposta, Dev.class);
+
+                SobreDev.setText(desenvolvedor.getSobre().toString());
+                NomeDev.setText(desenvolvedor.getNome().toString());
             }catch (IOException e) {
                 Log.e(PERFIL_DEV, "Erro: ", e);
                 throw new RuntimeException(e);
             }
         });
-
-        SobreDev = findViewById(R.id.txtPerfilNomeDev);
-        NomeDev = findViewById(R.id.txtPerfilNomeDev);
-
-        SobreDev.setText(desenvolvedor.getSobre());
-        NomeDev.setText(desenvolvedor.getNome());
 
     }
 }
