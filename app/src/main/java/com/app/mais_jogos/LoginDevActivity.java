@@ -1,6 +1,7 @@
 package com.app.mais_jogos;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -80,6 +81,8 @@ public class LoginDevActivity extends AppCompatActivity {
                     dev.setPassword(senhaDev.getText().toString());
                     dev.setConfirmarSenha(confirmarSenhaDev.getText().toString());
                     salvar(dev);
+                    Intent perfilDev = new Intent(this, PerfilDevActivity.class);
+                    startActivity(perfilDev);
                 }else{
                     errorLoginDev.setText("As senhas são diferentes!");
                 }
