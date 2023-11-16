@@ -32,7 +32,7 @@
         android:id="@+id/infoCadastroAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="5dp"
         android:fontFamily="@font/poppins"
         android:text="Cadastre-se com seu email e senha"
         android:textAlignment="center"
@@ -43,7 +43,7 @@
         android:id="@+id/lblEmailAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/silkscreen_regular"
         android:text="Email"
         android:textColor="#FFFFFF"
@@ -68,7 +68,7 @@
         android:id="@+id/lblSenhaAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/silkscreen_regular"
         android:text="Senha"
         android:textColor="#FFFFFF"
@@ -84,10 +84,42 @@
         android:ems="10"
         android:fontFamily="@font/poppins"
         android:hint="Digite sua senha"
-        android:inputType="datetime|date"
+        android:inputType="text"
         android:textColor="#fff"
         android:textColorHint="#4C4C4C"
         android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/lblSenhaConfirmaAdminLogin2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/silkscreen_regular"
+        android:text="Confirmar Senha"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txtSenhaConfirmaAdminLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:autofillHints=""
+        android:backgroundTint="#fff"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:hint="Confirme sua senha"
+        android:inputType="text"
+        android:textColor="#fff"
+        android:textColorHint="#4C4C4C"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/erroCadastroAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#7900FB"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnNextAdmin"
@@ -95,9 +127,9 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/gradient_button"
         android:fontFamily="@font/silkscreen_regular"
         android:gravity="center"
