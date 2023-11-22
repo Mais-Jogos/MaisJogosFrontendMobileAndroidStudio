@@ -17,8 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CadastroAdmin extends AppCompatActivity {
 
-    TextView loginPage;
-
     EditText inputEmail;
     EditText inputSenha;
     EditText inputConfirmarSenha;
@@ -31,7 +29,6 @@ public class CadastroAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_admin);
 
-        loginPage = findViewById(R.id.txtLoginAdmin);
         inputEmail = findViewById(R.id.txtEmailAdmin);
         inputSenha = findViewById(R.id.txtSenhaAdmin);
         inputConfirmarSenha = findViewById(R.id.txtSenhaConfirmaAdminLogin);
@@ -51,13 +48,6 @@ public class CadastroAdmin extends AppCompatActivity {
         titlePage.getPaint().setShader(textShader);
         /* Title Gradient */
 
-
-
-        loginPage.setOnClickListener( e ->{
-            Intent gotoLoginPage = new Intent(this, LoginAdmin.class);
-
-            startActivity(gotoLoginPage);
-        });
 
         btnCadastrar.setOnClickListener( e ->{
             if(isInputsCorrected()){
