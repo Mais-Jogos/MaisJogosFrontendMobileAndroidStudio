@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingTop="0dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="30dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="111dp"
+        app:srcCompat="@mipmap/logo_foreground"
+        android:contentDescription="@string/logo_jogos" />
+
+    <TextView
+        android:id="@+id/titleLoginAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/silkscreen_regular"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/infoLoginAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/poppins"
+        android:text="Entre com seu email e senha"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/lblEmailAdminLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/silkscreen_regular"
+        android:text="Email"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txtEmailAdminLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:autofillHints=""
+        android:backgroundTint="#fff"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:hint="Email do adminstrador"
+        android:inputType="text"
+        android:textColor="#fff"
+        android:textColorHint="#4C4C4C"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/lblSenhaAdminLogin2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/silkscreen_regular"
+        android:text="Senha"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txtSenhaAdminLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:autofillHints=""
+        android:backgroundTint="#fff"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:hint="Digite sua senha"
+        android:inputType="datetime|date"
+        android:textColor="#fff"
+        android:textColorHint="#4C4C4C"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/erroLoginAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#7900fb" />
+
+    <Button
+        android:id="@+id/btnNextAdminLogin"
+        android:layout_width="286dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/gradient_button"
+        android:fontFamily="@font/silkscreen_regular"
+        android:gravity="center"
+        android:text="Entrar"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="Não tem uma conta?"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/txtLoginAdminCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Faça seu cadastro"
+        android:textColor="#7900fb"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
