@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingTop="0dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="30dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="111dp"
+        app:srcCompat="@mipmap/logo_foreground"
+        android:contentDescription="@string/logo_jogos" />
+
+    <TextView
+        android:id="@+id/titleCadastroUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/cadastre_se"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/infoCadastroUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/subtitulo_cadastro"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/lblNomeUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/nome"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txtNomeUser"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#fff"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:hint="@string/nomeuser"
+        android:inputType="text"
+        android:textColor="#fff"
+        android:textColorHint="#4C4C4C"
+        android:textSize="14sp"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/lblDataUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/data_nasc"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txtDataUser"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#fff"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:hint="@string/data_format"
+        android:inputType="datetime|date"
+        android:textColor="#fff"
+        android:textColorHint="#4C4C4C"
+        android:textSize="14sp"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/lblSobreUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/sobre"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txtSobreUser"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#fff"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:gravity="top|left"
+        android:hint="@string/sobre_voc"
+        android:textColor="#fff"
+        android:textColorHint="#4C4C4C"
+        android:inputType="textMultiLine"
+        android:textSize="14sp"
+        android:autofillHints=""
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/errorCadastroUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/poppins"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#FF2525"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btnNextUser"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/gradient_button"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:text="@string/next"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null" />
+
+</LinearLayout>
