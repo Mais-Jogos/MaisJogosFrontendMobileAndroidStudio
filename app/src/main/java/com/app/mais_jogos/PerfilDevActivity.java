@@ -31,6 +31,7 @@ public class PerfilDevActivity extends AppCompatActivity {
         setContentView(R.layout.perfil_dev);
         SobreDev = findViewById(R.id.txtPerfilNomeDev);
         NomeDev = findViewById(R.id.txtPerfilNomeDev);
+
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() ->{
             OkHttpClient client = new OkHttpClient();
@@ -52,5 +53,10 @@ public class PerfilDevActivity extends AppCompatActivity {
             }
         });
 
+        SobreDev = findViewById(R.id.txtPerfilNomeDev);
+        NomeDev = findViewById(R.id.txtPerfilNomeDev);
+
+        SobreDev.setText(desenvolvedor.getSobre());
+        NomeDev.setText(desenvolvedor.getNome());
     }
 }

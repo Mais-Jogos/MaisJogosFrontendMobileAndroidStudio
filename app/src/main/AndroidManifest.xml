@@ -43,17 +43,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".CadastroDevActivity" android:exported="true">
-        <activity android:name=".CadastroUserActivity" android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LoginUserActivity" android:exported="true">
+        <activity android:name=".LoginDevActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".PerfilUserActivity" android:exported="true">
+        <activity android:name=".PerfilDevActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
