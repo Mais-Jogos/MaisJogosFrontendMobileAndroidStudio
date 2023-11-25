@@ -28,7 +28,12 @@ public class SelectPlayer extends AppCompatActivity {
             startActivity(gotToSignUpAdmin);
         });
         layoutDev.setOnClickListener(e ->{
-            Intent gotToSignUpDev = new Intent(this, CadastroDevActivity.class);
+            Intent gotToSignUpDev = new Intent(this, CadastroDevPrimeiraEtapa.class);
+
+            startActivity(gotToSignUpDev);
+        });
+        layoutUser.setOnClickListener(e ->{
+            Intent gotToSignUpDev = new Intent(this, CadastroUserPrimeiraEtapa.class);
 
             startActivity(gotToSignUpDev);
         });

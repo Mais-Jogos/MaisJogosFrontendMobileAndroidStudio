@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PerfilAdminActivity extends AppCompatActivity {
+public class PerfilAdmin extends AppCompatActivity {
 
     Button excluirAdmin;
 
@@ -23,7 +23,7 @@ public class PerfilAdminActivity extends AppCompatActivity {
 
         excluirAdmin.setOnClickListener( e ->{
             // Modal
-            AlertDialog.Builder confirmaExlusao = new AlertDialog.Builder(PerfilAdminActivity.this);
+            AlertDialog.Builder confirmaExlusao = new AlertDialog.Builder(PerfilAdmin.this);
             confirmaExlusao.setTitle("Atenção!!");
             confirmaExlusao.setMessage("Tem certeza que deseja excluir a sua conta?\nEssa ação não pode ser desfeita!");
             confirmaExlusao.setCancelable(false);

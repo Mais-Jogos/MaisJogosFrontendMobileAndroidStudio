@@ -1,5 +1,6 @@
 package com.app.mais_jogos;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -18,12 +19,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class PerfilDevActivity extends AppCompatActivity {
+public class PerfilDev extends AppCompatActivity {
     TextView SobreDev;
     TextView NomeDev;
     Dev desenvolvedor = new Dev();
     Gson gson = new Gson();
-    private static final String URL = "http://10.0.2.2:8080/auth/dev/1";
+    private static final String URL = "http://10.0.2.2:8080/api/usuario/listarCliente";
     private static final String PERFIL_DEV = "Perfil Dev";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,12 +32,16 @@ public class PerfilDevActivity extends AppCompatActivity {
         setContentView(R.layout.perfil_dev);
         SobreDev = findViewById(R.id.txtPerfilNomeDev);
         NomeDev = findViewById(R.id.txtPerfilNomeDev);
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("CADASTRO_DEV", MODE_PRIVATE);
+        int id = sp.getInt("id", 0);
+        String token = sp.getString("token", null);
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() ->{
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
-                    .url(URL)
+                    .url(URL+id)
+                    .header("Bearer", token)
                     .get()
                     .build();
             try(Response response = client.newCall(request).execute()) {

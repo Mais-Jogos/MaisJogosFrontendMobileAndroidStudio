@@ -109,7 +109,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/infoPerfilDev"
         app:layout_constraintEnd_toEndOf="@+id/infoPerfilDev"
         app:layout_constraintStart_toStartOf="@+id/infoPerfilDev"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfilDev">
 
         <TextView
             android:id="@+id/txtPerfilSobreAdmin"
@@ -157,7 +157,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgPerfilDev"
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginTop="16dp"

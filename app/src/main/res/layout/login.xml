@@ -19,17 +19,17 @@
         android:contentDescription="@string/logo_jogos" />
 
     <TextView
-        android:id="@+id/titleLoginAdmin"
+        android:id="@+id/titleLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/silkscreen_regular"
+        android:fontFamily="@font/poppins_medium"
         android:text="Login"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/infoLoginAdmin"
+        android:id="@+id/infoLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
@@ -40,17 +40,17 @@
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/lblEmailAdminLogin"
+        android:id="@+id/lblEmailLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:fontFamily="@font/silkscreen_regular"
+        android:fontFamily="@font/poppins"
         android:text="Email"
         android:textColor="#FFFFFF"
         android:textSize="14sp" />
 
     <EditText
-        android:id="@+id/txtEmailAdminLogin"
+        android:id="@+id/txtEmailLogin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
@@ -58,24 +58,24 @@
         android:backgroundTint="#fff"
         android:ems="10"
         android:fontFamily="@font/poppins"
-        android:hint="Email do adminstrador"
-        android:inputType="text"
+        android:hint="@string/email"
+        android:inputType="text|textEmailAddress"
         android:textColor="#fff"
         android:textColorHint="#4C4C4C"
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/lblSenhaAdminLogin2"
+        android:id="@+id/lblSenhaLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:fontFamily="@font/silkscreen_regular"
+        android:fontFamily="@font/poppins"
         android:text="Senha"
         android:textColor="#FFFFFF"
         android:textSize="14sp" />
 
     <EditText
-        android:id="@+id/txtSenhaAdminLogin"
+        android:id="@+id/txtSenhaLogin"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
@@ -84,19 +84,27 @@
         android:ems="10"
         android:fontFamily="@font/poppins"
         android:hint="Digite sua senha"
-        android:inputType="datetime|date"
+        android:inputType="text|textPassword"
         android:textColor="#fff"
         android:textColorHint="#4C4C4C"
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/erroLoginAdmin"
+        android:id="@+id/erroLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#7900fb" />
+        android:textAlignment="center"
+        android:textColor="#FF2525" />
+
+    <TextView
+        android:id="@+id/sucessLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#4CAF50" />
 
     <Button
-        android:id="@+id/btnNextAdminLogin"
+        android:id="@+id/btnLogin"
         android:layout_width="286dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -105,32 +113,34 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/gradient_button"
-        android:fontFamily="@font/silkscreen_regular"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="Entrar"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@null" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/lblNaoTemConta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
         android:foregroundGravity="center"
         android:gravity="center"
         android:text="Não tem uma conta?"
         android:textColor="#FFFFFF"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/txtLoginAdminCadastro"
+        android:id="@+id/txtLoginCadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
         android:gravity="center"
         android:text="Faça seu cadastro"
         android:textColor="#7900fb"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
 </LinearLayout>

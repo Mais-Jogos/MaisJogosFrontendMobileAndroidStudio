@@ -14,7 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CadastroUserActivity extends AppCompatActivity {
+public class CadastroUserPrimeiraEtapa extends AppCompatActivity {
 
     TextView titleGradient;
     TextView errorCadastroUser;
@@ -27,7 +27,7 @@ public class CadastroUserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cadastro_user);
+        setContentView(R.layout.cadastro_user_primeira_etapa);
 
         /* Title Gradient */
         titleGradient =  findViewById(R.id.titleCadastroUser);
@@ -52,7 +52,7 @@ public class CadastroUserActivity extends AppCompatActivity {
             if (validar()){
                 errorCadastroUser.setText("");
                 User d = getInfoUser();
-                Intent loginUser = new Intent(this, LoginUserActivity.class);
+                Intent loginUser = new Intent(this, CadastroUserSegundaEtapa.class);
                 loginUser.putExtra("User", d);
                 startActivity(loginUser);
             }else{

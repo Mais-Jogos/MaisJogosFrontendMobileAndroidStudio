@@ -54,7 +54,7 @@ public class CadastroAdmin extends AppCompatActivity {
                 Log.i("cadastroAdmin", "Data:\n" + inputEmail.getText().toString() + " " + inputSenha.getText().toString() + " " + inputConfirmarSenha.getText().toString());
                 // Chama o back e cadastra
 
-                Intent intent = new Intent(this, PerfilAdminActivity.class);
+                Intent intent = new Intent(this, PerfilAdmin.class);
 
                 startActivity(intent);
             }else{

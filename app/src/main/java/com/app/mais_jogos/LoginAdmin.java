@@ -7,8 +7,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.app.mais_jogos.CadastroAdmin;
-
 public class LoginAdmin extends AppCompatActivity {
 
     TextView cadastroAdmin;
@@ -18,7 +16,7 @@ public class LoginAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_admin);
 
-        cadastroAdmin = findViewById(R.id.txtLoginAdminCadastro);
+        cadastroAdmin = findViewById(R.id.txtLoginCadastro);
 
         cadastroAdmin.setOnClickListener( e ->{
             Intent gotoSignUpPage = new Intent(this, CadastroAdmin.class);

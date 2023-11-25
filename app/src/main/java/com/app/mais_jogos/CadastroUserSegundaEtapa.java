@@ -28,7 +28,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class LoginUserActivity extends AppCompatActivity {
+public class CadastroUserSegundaEtapa extends AppCompatActivity {
     TextView titleGradient;
     User user;
     TextView errorLoginUser;
@@ -45,7 +45,7 @@ public class LoginUserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_user);
+        setContentView(R.layout.cadastro_user_segunda_etapa);
 
         /* Title Gradient */
         titleGradient =  findViewById(R.id.titleLoginUser);
@@ -81,7 +81,7 @@ public class LoginUserActivity extends AppCompatActivity {
                     user.setPassword(senhaUser.getText().toString());
                     user.setConfirmarSenha(confirmarSenhaUser.getText().toString());
                     salvar(user);
-                    Intent perfilUser = new Intent(this, PerfilUserActivity.class);
+                    Intent perfilUser = new Intent(this, PerfilUser.class);
                     startActivity(perfilUser);
                 }else{
                     errorLoginUser.setText("As senhas são diferentes!");

@@ -18,7 +18,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class PerfilUserActivity extends AppCompatActivity {
+public class PerfilUser extends AppCompatActivity {
     TextView SobreUser;
     TextView nomeUser;
     User usuario = new User();

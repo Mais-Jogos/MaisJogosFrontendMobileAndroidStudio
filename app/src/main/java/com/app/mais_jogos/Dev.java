@@ -10,6 +10,7 @@ public class Dev implements Serializable {
     private String confirmarSenha;
     private String sobre;
 
+
     public String getNome() {
         return nome;
     }

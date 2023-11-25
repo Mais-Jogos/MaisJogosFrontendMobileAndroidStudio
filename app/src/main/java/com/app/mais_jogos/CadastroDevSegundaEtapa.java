@@ -2,6 +2,7 @@ package com.app.mais_jogos;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -28,7 +29,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class LoginDevActivity extends AppCompatActivity {
+public class CadastroDevSegundaEtapa extends AppCompatActivity {
     TextView titleGradient;
     Dev dev;
     TextView errorLoginDev;
@@ -38,14 +39,22 @@ public class LoginDevActivity extends AppCompatActivity {
     EditText confirmarSenhaDev;
     Button btnCadastraDev;
     Gson gson = new Gson();
-    private static final String URL = "http://10.0.2.2:8080/auth/cadastro/dev";
+    private static final String URL = "http://10.0.2.2:8080/api/usuario/salvar";
     private static final String CADASTRO_DEV = "Cadastro Dev";
-
+    class Resposta{
+        private int id;
+        private String nome;
+        private String login;
+        private String dataNasc;
+        private String password;
+        private String confirmarSenha;
+        private String sobre;
+    }
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_dev);
+        setContentView(R.layout.cadastro_dev_segunda_etapa);
 
         /* Title Gradient */
         titleGradient =  findViewById(R.id.titleLoginDev);
@@ -81,8 +90,8 @@ public class LoginDevActivity extends AppCompatActivity {
                     dev.setPassword(senhaDev.getText().toString());
                     dev.setConfirmarSenha(confirmarSenhaDev.getText().toString());
                     salvar(dev);
-                    Intent perfilDev = new Intent(this, PerfilDevActivity.class);
-                    startActivity(perfilDev);
+                    Intent login = new Intent(this, Login.class);
+                    startActivity(login);
                 }else{
                     errorLoginDev.setText("As senhas são diferentes!");
                 }
@@ -99,7 +108,6 @@ public class LoginDevActivity extends AppCompatActivity {
     private boolean validaSenha(){
         return senhaDev.getText().toString().equals(confirmarSenhaDev.getText().toString());
     }
-    @SuppressLint("SetTextI18n")
     private void salvar(Dev d){
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(()->{
@@ -115,6 +123,17 @@ public class LoginDevActivity extends AppCompatActivity {
             Log.i(CADASTRO_DEV, devJson);
             try{
                 Response response = call.execute();
+                String strResposta = response.body().string();
+                Log.i(CADASTRO_DEV, "String resposta " + strResposta);
+                Resposta resposta = gson.fromJson(strResposta, Resposta.class);
+                Log.i(CADASTRO_DEV, "String resposta class " + resposta);
+                SharedPreferences sp = getApplicationContext().getSharedPreferences("CADASTRO", MODE_PRIVATE);
+                sp.edit().putInt("id", resposta.id);
+                sp.edit().commit();
+                sp.edit().putString("type", "dev");
+                sp.edit().commit();
+                sp.edit().apply();
+                Log.i(CADASTRO_DEV, sp.toString());
                 sucessLoginDev.setText("Cadastrado com sucesso!");
                 Log.i(CADASTRO_DEV, "Response" + response);
             }catch (IOException e){
