@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -95,44 +96,39 @@ public class Login extends AppCompatActivity {
         executor.execute(() ->{
             OkHttpClient client = new OkHttpClient();
             String loginJson = gson.toJson(userLogin);
+            Log.i(LOGIN, "Login json "+ loginJson);
             RequestBody body = RequestBody.create(userLogin.toString(), MediaType.get("application/json"));
             Request request = new Request.Builder()
                     .post(body)
                     .url(URL)
                     .build();
             Call call = client.newCall(request);
-            try{
-                Response response = call.execute();
+            try(Response response = call.execute()){
+                String dataValue = "";
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    JSONObject jsonResponse = new JSONObject(responseBody);
+                    Log.i(LOGIN, "Response json " + jsonResponse);
+                    dataValue = jsonResponse.getString("data");
 
-                byte[] data = response.body().bytes();
-                String json = new String(data, StandardCharsets.UTF_8);
-                Log.i(LOGIN, String.valueOf(response));
-                if (!json.isEmpty()) {
-                    try {
-                        JSONObject jsonObject = new JSONObject(json);
-                        String d = jsonObject.getString("data");
-                        Log.i(LOGIN, "Response data: " + d);
-                        Log.i(LOGIN, "Response data: " + data);
-                    } catch (JSONException e) {
-                        Log.e(LOGIN, "Error parsing JSON: ", e);
-                    }
+                    Log.i(LOGIN, "Data: " + dataValue);
                 } else {
-                    Log.i(LOGIN, "Response data is empty");
+                    Log.e(LOGIN, "Erro na requisição: " + response.code());
+                    erroLogin.setText("Ocorreu um erro, tente novamente!");
                 }
+
                 SharedPreferences sp = getApplicationContext().getSharedPreferences("CADASTRO", MODE_PRIVATE);
                 String type = sp.getString("type", null);
                 int id = sp.getInt("id", 0);
-                sp.edit().putString("token", data.toString());
                 sp.edit().commit();
-                String token = sp.getString("type", null);
                 Log.i(LOGIN, "Type "+ type);
                 Log.i(LOGIN, "Id "+ id);
-                Log.i(LOGIN, "Token "+ token);
+                Log.i(LOGIN, "Token "+ dataValue);
                 sucessLogin.setText("Você foi logado!");
 
-            }catch(IOException err){
+            }catch(IOException | JSONException err){
                 Log.e(LOGIN, "Erro", err);
-                erroLogin.setText("Ocorreu um erro, tente novamente!");
+                erroLogin.setText("Ocorreu um erro, tente novamente 2!");
                 throw new RuntimeException(err);
             }
         });
