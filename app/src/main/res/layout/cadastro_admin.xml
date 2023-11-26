@@ -11,132 +11,167 @@
     android:paddingRight="30dp"
     android:paddingBottom="30dp">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="111dp"
-        app:srcCompat="@mipmap/logo_foreground"
-        android:contentDescription="@string/logo_jogos" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/titleCadastroAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/silkscreen_regular"
-        android:text="@string/cadastre_se"
-        android:textAlignment="center"
-        android:textColor="#fff"
-        android:textSize="30sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/infoCadastroAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/poppins"
-        android:text="Cadastre-se com seu email e senha"
-        android:textAlignment="center"
-        android:textColor="#fff"
-        android:textSize="14sp" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="111dp"
+                android:contentDescription="@string/logo_jogos"
+                tools:srcCompat="@mipmap/logo_foreground" />
 
-    <TextView
-        android:id="@+id/lblEmailAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/silkscreen_regular"
-        android:text="Email"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp" />
+            <TextView
+                android:id="@+id/titleCadastroAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/silkscreen_regular"
+                android:text="@string/cadastre_se"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="30sp" />
 
-    <EditText
-        android:id="@+id/txtEmailAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
-        android:autofillHints=""
-        android:backgroundTint="#fff"
-        android:ems="10"
-        android:fontFamily="@font/poppins"
-        android:hint="Email do adminstrador"
-        android:inputType="text"
-        android:textColor="#fff"
-        android:textColorHint="#4C4C4C"
-        android:textSize="14sp" />
+            <TextView
+                android:id="@+id/infoCadastroAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Cadastre-se com seu email e senha"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/lblSenhaAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/silkscreen_regular"
-        android:text="Senha"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp" />
+            <TextView
+                android:id="@+id/lblNomeAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/silkscreen_regular"
+                android:text="Nome"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
 
-    <EditText
-        android:id="@+id/txtSenhaAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
-        android:autofillHints=""
-        android:backgroundTint="#fff"
-        android:ems="10"
-        android:fontFamily="@font/poppins"
-        android:hint="Digite sua senha"
-        android:inputType="text|textPassword"
-        android:textColor="#fff"
-        android:textColorHint="#4C4C4C"
-        android:textSize="14sp" />
+            <EditText
+                android:id="@+id/txtNomeAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:autofillHints=""
+                android:backgroundTint="#fff"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Nome do adminstrador"
+                android:inputType="text"
+                android:textColor="#fff"
+                android:textColorHint="#4C4C4C"
+                android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/lblSenhaConfirmaAdminLogin2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/silkscreen_regular"
-        android:text="Confirmar Senha"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp" />
+            <TextView
+                android:id="@+id/lblEmailAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/silkscreen_regular"
+                android:text="Email"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
 
-    <EditText
-        android:id="@+id/txtSenhaConfirmaAdminLogin"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
-        android:autofillHints=""
-        android:backgroundTint="#fff"
-        android:ems="10"
-        android:fontFamily="@font/poppins"
-        android:hint="Confirme sua senha"
-        android:inputType="text|textPassword"
-        android:textColor="#fff"
-        android:textColorHint="#4C4C4C"
-        android:textSize="14sp" />
+            <EditText
+                android:id="@+id/txtEmailAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:autofillHints=""
+                android:backgroundTint="#fff"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Email do adminstrador"
+                android:inputType="text"
+                android:textColor="#fff"
+                android:textColorHint="#4C4C4C"
+                android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/erroCadastroAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#7900FB"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/lblSenhaAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/silkscreen_regular"
+                android:text="Senha"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
 
-    <Button
-        android:id="@+id/btnNextAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/gradient_button"
-        android:fontFamily="@font/silkscreen_regular"
-        android:gravity="center"
-        android:text="Cadastrar"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:backgroundTint="@null" />
+            <EditText
+                android:id="@+id/txtSenhaAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:autofillHints=""
+                android:backgroundTint="#fff"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Digite sua senha"
+                android:inputType="text|textPassword"
+                android:textColor="#fff"
+                android:textColorHint="#4C4C4C"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/lblSenhaConfirmaAdminLogin2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/silkscreen_regular"
+                android:text="Confirmar Senha"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtSenhaConfirmaAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:autofillHints=""
+                android:backgroundTint="#fff"
+                android:ems="10"
+                android:fontFamily="@font/poppins"
+                android:hint="Confirme sua senha"
+                android:inputType="text|textPassword"
+                android:textColor="#fff"
+                android:textColorHint="#4C4C4C"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/erroCadastroAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#7900FB"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnNextAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/gradient_button"
+                android:fontFamily="@font/silkscreen_regular"
+                android:gravity="center"
+                android:text="Cadastrar"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
