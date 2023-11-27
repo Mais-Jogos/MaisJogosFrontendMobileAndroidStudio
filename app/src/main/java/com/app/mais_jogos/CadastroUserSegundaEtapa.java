@@ -2,6 +2,7 @@ package com.app.mais_jogos;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -16,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
@@ -38,8 +40,17 @@ public class CadastroUserSegundaEtapa extends AppCompatActivity {
     EditText confirmarSenhaUser;
     Button btnCadastraUser;
     Gson gson = new Gson();
-    private static final String URL = "http://10.0.2.2:8080/auth/cadastro/user";
+    private static final String URL = "http://10.0.2.2:8080/api/usuario/salvar";
     private static final String CADASTRO_USER = "Cadastro User";
+    class Resposta{
+        private int id;
+        private String nome;
+        private String sobrenome;
+        private String dataNasc;
+        private String login;
+        private String password;
+        private String confirmarSenha;
+    }
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -81,8 +92,8 @@ public class CadastroUserSegundaEtapa extends AppCompatActivity {
                     user.setPassword(senhaUser.getText().toString());
                     user.setConfirmarSenha(confirmarSenhaUser.getText().toString());
                     salvar(user);
-                    Intent perfilUser = new Intent(this, PerfilUser.class);
-                    startActivity(perfilUser);
+                    Intent login = new Intent(this, Login.class);
+                    startActivity(login);
                 }else{
                     errorLoginUser.setText("As senhas são diferentes!");
                 }
@@ -113,10 +124,19 @@ public class CadastroUserSegundaEtapa extends AppCompatActivity {
             Call call = client.newCall(request);
             Log.i(CADASTRO_USER, "Request feita no servidor");
             Log.i(CADASTRO_USER, userJson);
-            try{
-                Response response = call.execute();
+            try(Response response = call.execute()){
+                String strResposta = response.body().string();
+                JsonObject convertObject = gson.fromJson(strResposta, JsonObject.class);
+                Log.i(CADASTRO_USER, "User resposta: " + strResposta);
+                Resposta userData = gson.fromJson(strResposta, Resposta.class);
+                SharedPreferences sp = getApplicationContext().getSharedPreferences("CADASTRO", MODE_PRIVATE);
+                sp.edit().putInt("id", userData.id);
+                sp.edit().putString("type", "user");
+                sp.edit().commit();
+                sp.edit().apply();
+                Log.i(CADASTRO_USER, "nome user " + userData.id);
+                Log.i(CADASTRO_USER, "tipo " + sp.getString("type", null));
                 sucessLoginUser.setText("Cadastrado com sucesso!");
-                Log.i(CADASTRO_USER, "Response" + response);
             }catch (IOException e){
                 Log.e(CADASTRO_USER, "Erro: ", e);
                 throw  new RuntimeException(e);
