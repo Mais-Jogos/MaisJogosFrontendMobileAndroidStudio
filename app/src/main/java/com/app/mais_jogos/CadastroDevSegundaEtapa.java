@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
@@ -121,21 +122,19 @@ public class CadastroDevSegundaEtapa extends AppCompatActivity {
             Call call = client.newCall(request);
             Log.i(CADASTRO_DEV, "Request feita no servidor");
             Log.i(CADASTRO_DEV, devJson);
-            try{
-                Response response = call.execute();
+            try(Response response = call.execute()){
                 String strResposta = response.body().string();
-                Log.i(CADASTRO_DEV, "String resposta " + strResposta);
-                Resposta resposta = gson.fromJson(strResposta, Resposta.class);
-                Log.i(CADASTRO_DEV, "String resposta class " + resposta);
+                JsonObject convertObject = gson.fromJson(strResposta, JsonObject.class);
+                Log.i(CADASTRO_DEV, "Dev resposta: " + strResposta);
+                Resposta devData = gson.fromJson(strResposta, Resposta.class);
                 SharedPreferences sp = getApplicationContext().getSharedPreferences("CADASTRO", MODE_PRIVATE);
-                sp.edit().putInt("id", resposta.id);
-                sp.edit().commit();
+                sp.edit().putInt("id", devData.id);
                 sp.edit().putString("type", "dev");
                 sp.edit().commit();
                 sp.edit().apply();
-                Log.i(CADASTRO_DEV, sp.toString());
+                Log.i(CADASTRO_DEV, "nome dev " + devData.id);
+                Log.i(CADASTRO_DEV, "tipo " + sp.getString("type", null));
                 sucessLoginDev.setText("Cadastrado com sucesso!");
-                Log.i(CADASTRO_DEV, "Response" + response);
             }catch (IOException e){
                 Log.e(CADASTRO_DEV, "Erro: ", e);
                 throw  new RuntimeException(e);
