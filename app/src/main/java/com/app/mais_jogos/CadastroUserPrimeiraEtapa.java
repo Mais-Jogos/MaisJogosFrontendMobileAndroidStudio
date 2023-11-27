@@ -20,7 +20,7 @@ public class CadastroUserPrimeiraEtapa extends AppCompatActivity {
     TextView errorCadastroUser;
     EditText nomeUser;
     EditText dataUser;
-    EditText sobreUser;
+    EditText sobrenomeUser;
     Button btnNextUser;
 
     @SuppressLint("SetTextI18n")
@@ -44,7 +44,7 @@ public class CadastroUserPrimeiraEtapa extends AppCompatActivity {
 
         nomeUser = findViewById(R.id.txtNomeUser);
         dataUser = findViewById(R.id.txtDataUser);
-        sobreUser = findViewById(R.id.txtSobreUser);
+        sobrenomeUser = findViewById(R.id.txtSobrenomeUser);
         btnNextUser = findViewById(R.id.btnNextUser);
         errorCadastroUser = findViewById(R.id.errorCadastroUser);
 
@@ -64,13 +64,13 @@ public class CadastroUserPrimeiraEtapa extends AppCompatActivity {
     private boolean validar(){
         return nomeUser.getText().length() != 0 &&
                 dataUser.getText().length() != 0 &&
-                sobreUser.getText().length() != 0;
+                sobrenomeUser.getText().length() != 0;
     }
     private User getInfoUser(){
         User d = new User();
         d.setNome(nomeUser.getText().toString());
         d.setDataNasc(dataUser.getText().toString());
-        d.setSobre(sobreUser.getText().toString());
+        d.setSobre(sobrenomeUser.getText().toString());
         return d;
     }
 }

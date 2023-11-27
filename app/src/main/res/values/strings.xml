@@ -3,6 +3,7 @@
     <string name="subtitulo_cadastro">Please enter your Email ID to Sign Up.</string>
     <string name="cadastre_se">Cadastre-se</string>
     <string name="nome">Nome</string>
+    <string name="sobrenome">Sobrenome</string>
     <string name="nomedev">Nome do desenvolvedor/ equipe</string>
     <string name="data_nasc">Data de nascimento</string>
     <string name="data_format">00/00/0000</string>
