@@ -70,7 +70,7 @@ public class CadastroUserPrimeiraEtapa extends AppCompatActivity {
         User d = new User();
         d.setNome(nomeUser.getText().toString());
         d.setDataNasc(dataUser.getText().toString());
-        d.setSobre(sobrenomeUser.getText().toString());
+        d.setSobrenome(sobrenomeUser.getText().toString());
         return d;
     }
 }

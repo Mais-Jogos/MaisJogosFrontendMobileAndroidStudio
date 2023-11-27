@@ -8,7 +8,7 @@ public class User implements Serializable {
     private String dataNasc;
     private String password;
     private String confirmarSenha;
-    private String sobre;
+    private String sobrenome;
 
     public String getNome() {
         return nome;
@@ -50,11 +50,11 @@ public class User implements Serializable {
         this.confirmarSenha = confirmarSenha;
     }
 
-    public String getSobre() {
-        return sobre;
+    public String getSobrenome() {
+        return sobrenome;
     }
 
-    public void setSobre(String sobre) {
-        this.sobre = sobre;
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 }

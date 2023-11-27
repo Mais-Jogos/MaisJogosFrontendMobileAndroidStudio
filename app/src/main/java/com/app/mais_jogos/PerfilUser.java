@@ -51,7 +51,7 @@ public class PerfilUser extends AppCompatActivity {
         SobreUser = findViewById(R.id.txtPerfilNomeUser);
         nomeUser = findViewById(R.id.txtPerfilNomeUser);
 
-        SobreUser.setText(usuario.getSobre());
+        SobreUser.setText(usuario.getSobrenome());
         nomeUser.setText(usuario.getNome());
 
     }
