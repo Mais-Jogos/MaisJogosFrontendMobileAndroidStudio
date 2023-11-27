@@ -10,6 +10,25 @@ public class User implements Serializable {
     private String confirmarSenha;
     private String sobrenome;
 
+    public int getIdAvatar() {
+        return idAvatar;
+    }
+
+    public void setIdAvatar(int idAvatar) {
+        this.idAvatar = idAvatar;
+    }
+
+    public double getMoeda() {
+        return moeda;
+    }
+
+    public void setMoeda(double moeda) {
+        this.moeda = moeda;
+    }
+
+    private int idAvatar;
+    private double moeda;
+
     public String getNome() {
         return nome;
     }
