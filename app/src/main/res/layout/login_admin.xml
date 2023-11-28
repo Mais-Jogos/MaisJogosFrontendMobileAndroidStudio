@@ -113,24 +113,4 @@
         android:textStyle="bold"
         app:backgroundTint="@null" />
 
-    <TextView
-        android:id="@+id/lblNaoTemConta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:text="Não tem uma conta?"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/txtLoginCadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Faça seu cadastro"
-        android:textColor="#7900fb"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
 </LinearLayout>
