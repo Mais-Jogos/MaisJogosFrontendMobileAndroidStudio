@@ -10,6 +10,11 @@ public class User implements Serializable {
     private String confirmarSenha;
     private String sobrenome;
 
+    private int id;
+
+    public int getId() {
+        return id;
+    }
     public int getIdAvatar() {
         return idAvatar;
     }

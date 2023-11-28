@@ -163,13 +163,13 @@
         app:srcCompat="@drawable/devboy" />
 
     <ImageButton
-        android:id="@+id/btnPerfilDevSave"
+        android:id="@+id/btnPerfilUserSave"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/border_image"
-        app:layout_constraintEnd_toStartOf="@+id/btnPerfilDevDelete"
+        app:layout_constraintEnd_toStartOf="@+id/btnPerfilUserDelete"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRequerimento"
@@ -177,7 +177,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/btnPerfilDevDelete"
+        android:id="@+id/btnPerfilUserDelete"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"

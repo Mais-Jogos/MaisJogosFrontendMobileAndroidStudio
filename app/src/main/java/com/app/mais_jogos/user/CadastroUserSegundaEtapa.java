@@ -1,6 +1,5 @@
 package com.app.mais_jogos.user;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -18,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mais_jogos.Login;
 import com.app.mais_jogos.R;
+import com.app.mais_jogos.Storage;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -33,10 +33,10 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class CadastroUserSegundaEtapa extends AppCompatActivity {
-    TextView titleGradient;
     User user;
-    TextView errorLoginUser;
-    TextView sucessLoginUser;
+    TextView titleGradient;
+    TextView errorUser2;
+    TextView sucessUser2;
     EditText emailUser;
     EditText senhaUser;
     EditText confirmarSenhaUser;
@@ -44,24 +44,14 @@ public class CadastroUserSegundaEtapa extends AppCompatActivity {
     Gson gson = new Gson();
     private static final String URL = "http://10.0.2.2:8080/api/usuario/salvar";
     private static final String CADASTRO_USER = "Cadastro User";
-    class Resposta{
-        private int id;
-        private String nome;
-        private String sobrenome;
-        private String dataNasc;
-        private String login;
-        private String password;
-        private String confirmarSenha;
-    }
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_user_segunda_etapa);
 
         /* Title Gradient */
-        titleGradient =  findViewById(R.id.titleLoginUser);
+        titleGradient =  findViewById(R.id.titleSegundoUser);
         TextPaint paint = titleGradient.getPaint();
         float width = paint.measureText("Cadastre-se");
 
@@ -82,25 +72,23 @@ public class CadastroUserSegundaEtapa extends AppCompatActivity {
         emailUser = findViewById(R.id.txtEmailUser);
         senhaUser = findViewById(R.id.txtSenhaUser);
         confirmarSenhaUser = findViewById(R.id.txtConfirmarSenhaUser);
+        errorUser2 = findViewById(R.id.errorSegundoUser);
+        sucessUser2 = findViewById(R.id.sucessSegundoUser);
         btnCadastraUser = findViewById(R.id.btnSaveUser);
-        errorLoginUser = findViewById(R.id.errorLoginUser);
-        sucessLoginUser = findViewById(R.id.sucessLoginUser);
 
         btnCadastraUser.setOnClickListener(e ->{
             if (validaCampos()){
                 if (validaSenha()){
-                    errorLoginUser.setText("");
+                    errorUser2.setText("");
                     user.setLogin(emailUser.getText().toString());
                     user.setPassword(senhaUser.getText().toString());
                     user.setConfirmarSenha(confirmarSenhaUser.getText().toString());
                     salvar(user);
-                    Intent login = new Intent(this, Login.class);
-                    startActivity(login);
                 }else{
-                    errorLoginUser.setText("As senhas são diferentes!");
+                    errorUser2.setText("As senhas são diferentes!");
                 }
             }else{
-                errorLoginUser.setText("Preencha todos os campos!");
+                errorUser2.setText("Preencha todos os campos!");
             }
         });
     }
@@ -112,35 +100,48 @@ public class CadastroUserSegundaEtapa extends AppCompatActivity {
     private boolean validaSenha(){
         return senhaUser.getText().toString().equals(confirmarSenhaUser.getText().toString());
     }
-    @SuppressLint("SetTextI18n")
     private void salvar(User d){
+        SharedPreferences sp = this.getSharedPreferences("CADASTRO", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        String userJson = gson.toJson(d);
+
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(()->{
             OkHttpClient client = new OkHttpClient();
-            String userJson = gson.toJson(d);
             RequestBody body = RequestBody.create(userJson, MediaType.get("application/json"));
             Request request = new Request.Builder()
                     .post(body)
                     .url(URL)
                     .build();
             Call call = client.newCall(request);
-            Log.i(CADASTRO_USER, "Request feita no servidor");
-            Log.i(CADASTRO_USER, userJson);
+            Log.i(CADASTRO_USER, "Request feita no servidor "+ userJson);
+
             try(Response response = call.execute()){
-                String strResposta = response.body().string();
-                JsonObject convertObject = gson.fromJson(strResposta, JsonObject.class);
-                Log.i(CADASTRO_USER, "User resposta: " + strResposta);
-                Resposta userData = gson.fromJson(strResposta, Resposta.class);
-                SharedPreferences sp = getApplicationContext().getSharedPreferences("CADASTRO", MODE_PRIVATE);
-                sp.edit().putInt("id", userData.id);
-                sp.edit().putString("type", "user");
-                sp.edit().commit();
-                sp.edit().apply();
-                Log.i(CADASTRO_USER, "nome user " + userData.id);
-                Log.i(CADASTRO_USER, "tipo " + sp.getString("type", null));
-                sucessLoginUser.setText("Cadastrado com sucesso!");
+                if(response.isSuccessful()){
+                    String strResposta = response.body().string();
+                    JsonObject convertObject = gson.fromJson(strResposta, JsonObject.class);
+                    User userData = gson.fromJson(convertObject, User.class);
+                    Log.i(CADASTRO_USER, "User resposta: " + strResposta);
+
+                    Storage s = new Storage();
+                    s.setId(String.valueOf(userData.getId()));
+                    s.setType("user");
+
+                    String storage = gson.toJson(s);
+                    editor.putString("storage", storage);
+                    editor.apply();
+                    Log.i(CADASTRO_USER, "Storage Cadastro " + storage);
+
+                    sucessUser2.setText("Cadastrado com sucesso!");
+                    Intent login = new Intent(this, Login.class);
+                    startActivity(login);
+                }else{
+                    Log.e(CADASTRO_USER, "Erro na requisição: " + response.code());
+                    errorUser2.setText("Ocorreu um erro, tente novamente!");
+                }
             }catch (IOException e){
                 Log.e(CADASTRO_USER, "Erro: ", e);
+                errorUser2.setText("Ocorreu um erro, tente novamente!");
                 throw  new RuntimeException(e);
             }
         });

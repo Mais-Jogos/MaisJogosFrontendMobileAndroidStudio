@@ -1,23 +1,19 @@
 package com.app.mais_jogos.dev;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mais_jogos.R;
 import com.app.mais_jogos.SelectPlayer;
 import com.app.mais_jogos.Storage;
-import com.app.mais_jogos.dev.Dev;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -25,15 +21,12 @@ import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import javax.xml.transform.OutputKeys;
-
 import okhttp3.Call;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import okio.BufferedSink;
 
 public class PerfilDev extends AppCompatActivity {
     TextView ValorVendas;
@@ -55,8 +48,8 @@ public class PerfilDev extends AppCompatActivity {
         SobreDev = findViewById(R.id.txtPerfilSobreDev);
         NomeDev = findViewById(R.id.txtPerfilNomeDev);
         ValorVendas = findViewById(R.id.txtValorVendas);
-        btnSave = findViewById(R.id.btnPerfilDevSave);
-        btnDelete = findViewById(R.id.btnPerfilDevDelete);
+        btnSave = findViewById(R.id.btnPerfilUserSave);
+        btnDelete = findViewById(R.id.btnPerfilUserDelete);
 
         carregarPerfil();
 
