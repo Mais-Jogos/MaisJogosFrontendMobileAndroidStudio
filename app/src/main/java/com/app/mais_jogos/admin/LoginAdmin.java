@@ -28,7 +28,7 @@ import okhttp3.Response;
 public class LoginAdmin extends AppCompatActivity {
 
     class DadosLoginAdmin {
-        private String login;
+        private String email;
         private String password;
     }
 
@@ -41,7 +41,7 @@ public class LoginAdmin extends AppCompatActivity {
 
     Button btnEntrar;
 
-    private final String URL = "http://192.168.15.135:8080/login";
+    private final String URL = "http://192.168.15.135:8080/api/adm/login";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class LoginAdmin extends AppCompatActivity {
         btnEntrar.setOnClickListener( e ->{
             if(isInputsCorrected()){
                 DadosLoginAdmin loginData = new DadosLoginAdmin();
-                loginData.login = inputEmail.getText().toString();
+                loginData.email = inputEmail.getText().toString();
                 loginData.password = inputSenha.getText().toString();
                 loginApi(loginData);
             }else{
@@ -89,6 +89,7 @@ public class LoginAdmin extends AppCompatActivity {
             Gson gson = new Gson();
 
             String adminLoginEmString = gson.toJson(admin);
+            Log.i("LoginAdmin","Sucesso!:\n" + adminLoginEmString);
 
             RequestBody body = RequestBody.create(adminLoginEmString, MediaType.get("application/json"));
 
@@ -99,7 +100,14 @@ public class LoginAdmin extends AppCompatActivity {
             try {
                 Response response = call.execute();
                 String responseString = response.body().string();
-                Log.i("LoginAdmin","Sucesso!:\n" + response);
+                Log.i("LoginAdmin","Sucesso!:\n" + responseString);
+
+                if(responseString.equals("Credenciais inválidas")){
+                    erroLogin.setText("Erro! Tente novamente!");
+                }else{
+                    Intent intent = new Intent(this, PerfilAdmin.class);
+                    startActivity(intent);
+                }
 
             } catch (IOException err) {
                 Log.i("LoginAdmin", "Erro :(:\n" + err);
