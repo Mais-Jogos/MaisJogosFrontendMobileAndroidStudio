@@ -35,9 +35,9 @@ public class Login extends AppCompatActivity {
     EditText emailLogin;
     EditText senhaLogin;
     Button btnLogin;
-    private final String URL = "http://10.0.2.2:8080/login";
-    Gson gson = new Gson();
     Storage storage = new Storage();
+    Gson gson = new Gson();
+    private final String URL = "http://10.0.2.2:8080/login";
     private static final String LOGIN = "Login";
 
     class DadosLogin {
@@ -70,20 +70,32 @@ public class Login extends AppCompatActivity {
         });
 
         btnLogin.setOnClickListener(e ->{
-            salvar();
+            if(validaCampos()){
+                erroLogin.setText("");
+                salvar();
+            }else{
+                erroLogin.setText("Preencha todos os campos");
+            }
         });
 
     }
+    private boolean validaCampos(){
+        return senhaLogin.getText().length() != 0 &&
+                emailLogin.getText().length() != 0;
+    }
     private void salvar(){
+        SharedPreferences sp = this.getSharedPreferences("CADASTRO", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
         DadosLogin userLogin = new DadosLogin(
                 emailLogin.getText().toString(),
                 senhaLogin.getText().toString()
         );
+        String loginJson = gson.toJson(userLogin);
+        Log.i(LOGIN, "Login json "+ loginJson);
+
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() ->{
             OkHttpClient client = new OkHttpClient();
-            String loginJson = gson.toJson(userLogin);
-            Log.i(LOGIN, "Login json "+ loginJson);
             RequestBody body = RequestBody.create(loginJson, MediaType.get("application/json"));
             Request request = new Request.Builder()
                     .post(body)
@@ -95,20 +107,17 @@ public class Login extends AppCompatActivity {
                     String responseBody = response.body().string();
                     Log.i(LOGIN, "Response token " + responseBody);
 
-                    SharedPreferences sp = this.getSharedPreferences("CADASTRO", MODE_PRIVATE);
                     String storagefromJson = sp.getString("storage", null);
 
                     JsonObject convertObject = gson.fromJson(storagefromJson, JsonObject.class);
                     storage = gson.fromJson(convertObject, Storage.class);
-                    Log.i(LOGIN, "Storage Login Salvar: " + storagefromJson);
+                    Log.i(LOGIN, "Storage Login: " + storagefromJson);
 
                     storage.setToken(responseBody);
                     String storageJson = gson.toJson(storage);
-                    SharedPreferences.Editor editor = sp.edit();
                     editor.putString("storage", storageJson);
-                    editor.commit();
+                    editor.apply();
 
-                    Log.i(LOGIN, "Storage Login: " + storageJson);
                     sucessLogin.setText("Você foi logado!");
                     if(storage.getType().contains("dev")){
                         Intent perfilDev = new Intent(this, PerfilDev.class);
@@ -117,7 +126,8 @@ public class Login extends AppCompatActivity {
                         Intent perfilUser = new Intent(this, PerfilUser.class);
                         startActivity(perfilUser);
                     }else{
-                        Log.i(LOGIN, "TYPE ELSE: "+ storage.getType());
+                        Log.i(LOGIN, "Tipo não encontrado: "+ storage.getType());
+                        erroLogin.setText("Tipo não encontrado!");
                     }
                 } else {
                     Log.e(LOGIN, "Erro na requisição: " + response.code());

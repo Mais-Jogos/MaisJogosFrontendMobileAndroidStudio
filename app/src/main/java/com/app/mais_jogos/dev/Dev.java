@@ -9,7 +9,24 @@ public class Dev implements Serializable {
     private String password;
     private String confirmarSenha;
     private String sobre;
+    private double valorVendas;
+    private int id;
 
+    public double getValorVendas() {
+        return valorVendas;
+    }
+
+    public void setValorVendas(double valorVendas) {
+        this.valorVendas = valorVendas;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

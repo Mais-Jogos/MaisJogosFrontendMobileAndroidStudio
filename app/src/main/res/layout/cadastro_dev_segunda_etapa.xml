@@ -19,7 +19,7 @@
         android:contentDescription="@string/logo_jogos" />
 
     <TextView
-        android:id="@+id/titleLoginDev"
+        android:id="@+id/titleSegundoDev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium"
@@ -29,7 +29,7 @@
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/infoLoginDev"
+        android:id="@+id/infoSegundoDev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -114,7 +114,7 @@
         tools:ignore="RtlHardcoded" />
 
     <TextView
-        android:id="@+id/errorLoginDev"
+        android:id="@+id/errorSegundoDev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -125,7 +125,7 @@
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/sucessLoginDev"
+        android:id="@+id/sucessSegundoDev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"

@@ -1,6 +1,5 @@
 package com.app.mais_jogos.dev;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -34,10 +33,10 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class CadastroDevSegundaEtapa extends AppCompatActivity {
-    TextView titleGradient;
     Dev dev;
-    TextView errorLoginDev;
-    TextView sucessLoginDev;
+    TextView titleGradient;
+    TextView errorDev2;
+    TextView sucessDev2;
     EditText emailDev;
     EditText senhaDev;
     EditText confirmarSenhaDev;
@@ -45,23 +44,14 @@ public class CadastroDevSegundaEtapa extends AppCompatActivity {
     Gson gson = new Gson();
     private static final String URL = "http://10.0.2.2:8080/api/usuario/salvar";
     private static final String CADASTRO_DEV = "Cadastro Dev";
-    class Resposta{
-        private int id;
-        private String nome;
-        private String login;
-        private String dataNasc;
-        private String password;
-        private String confirmarSenha;
-        private String sobre;
-    }
-    @SuppressLint("SetTextI18n")
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_dev_segunda_etapa);
 
         /* Title Gradient */
-        titleGradient =  findViewById(R.id.titleLoginDev);
+        titleGradient =  findViewById(R.id.titleSegundoDev);
         TextPaint paint = titleGradient.getPaint();
         float width = paint.measureText("Cadastre-se");
 
@@ -82,25 +72,23 @@ public class CadastroDevSegundaEtapa extends AppCompatActivity {
         emailDev = findViewById(R.id.txtEmailDev);
         senhaDev = findViewById(R.id.txtSenhaDev);
         confirmarSenhaDev = findViewById(R.id.txtConfirmarSenhaDev);
+        errorDev2 = findViewById(R.id.errorSegundoDev);
+        sucessDev2 = findViewById(R.id.sucessSegundoDev);
         btnCadastraDev = findViewById(R.id.btnSaveDev);
-        errorLoginDev = findViewById(R.id.errorLoginDev);
-        sucessLoginDev = findViewById(R.id.sucessLoginDev);
 
         btnCadastraDev.setOnClickListener(e ->{
             if (validaCampos()){
                 if (validaSenha()){
-                    errorLoginDev.setText("");
+                    errorDev2.setText("");
                     dev.setLogin(emailDev.getText().toString());
                     dev.setPassword(senhaDev.getText().toString());
                     dev.setConfirmarSenha(confirmarSenhaDev.getText().toString());
                     salvar(dev);
-                    Intent login = new Intent(this, Login.class);
-                    startActivity(login);
                 }else{
-                    errorLoginDev.setText("As senhas são diferentes!");
+                    errorDev2.setText("As senhas são diferentes!");
                 }
             }else{
-                errorLoginDev.setText("Preencha todos os campos!");
+                errorDev2.setText("Preencha todos os campos!");
             }
         });
     }
@@ -113,38 +101,47 @@ public class CadastroDevSegundaEtapa extends AppCompatActivity {
         return senhaDev.getText().toString().equals(confirmarSenhaDev.getText().toString());
     }
     private void salvar(Dev d){
+        SharedPreferences sp = this.getSharedPreferences("CADASTRO", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        String devJson = gson.toJson(d);
+
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(()->{
             OkHttpClient client = new OkHttpClient();
-            String devJson = gson.toJson(d);
             RequestBody body = RequestBody.create(devJson, MediaType.get("application/json"));
             Request request = new Request.Builder()
                     .post(body)
                     .url(URL)
                     .build();
             Call call = client.newCall(request);
-            Log.i(CADASTRO_DEV, "Request feita no servidor");
-            Log.i(CADASTRO_DEV, devJson);
+            Log.i(CADASTRO_DEV, "Request feita no servidor "+ devJson);
+
             try(Response response = call.execute()){
-                String strResposta = response.body().string();
-                JsonObject convertObject = gson.fromJson(strResposta, JsonObject.class);
-                Log.i(CADASTRO_DEV, "Dev resposta: " + strResposta);
-                Resposta devData = gson.fromJson(strResposta, Resposta.class);
+                if(response.isSuccessful()){
+                    String strResposta = response.body().string();
+                    JsonObject convertObject = gson.fromJson(strResposta, JsonObject.class);
+                    Dev devData = gson.fromJson(convertObject, Dev.class);
+                    Log.i(CADASTRO_DEV, "Dev resposta: " + strResposta);
 
-                Storage s = new Storage();
+                    Storage s = new Storage();
+                    s.setId(String.valueOf(devData.getId()));
+                    s.setType("dev");
 
-                s.setId(String.valueOf(devData.id));
-                s.setType("dev");
-                String storage = gson.toJson(s);
-                SharedPreferences sp = getApplicationContext().getSharedPreferences("CADASTRO", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("storage", storage);
-                editor.commit();
+                    String storage = gson.toJson(s);
+                    editor.putString("storage", storage);
+                    editor.apply();
+                    Log.i(CADASTRO_DEV, "Storage Cadastro " + storage);
 
-                Log.i(CADASTRO_DEV, "Storage Cadastro " + storage);
-                sucessLoginDev.setText("Cadastrado com sucesso!");
+                    sucessDev2.setText("Cadastrado com sucesso!");
+                    Intent login = new Intent(this, Login.class);
+                    startActivity(login);
+                }else{
+                    Log.e(CADASTRO_DEV, "Erro na requisição: " + response.code());
+                    errorDev2.setText("Ocorreu um erro, tente novamente!");
+                }
             }catch (IOException e){
                 Log.e(CADASTRO_DEV, "Erro: ", e);
+                errorDev2.setText("Ocorreu um erro, tente novamente!");
                 throw  new RuntimeException(e);
             }
         });

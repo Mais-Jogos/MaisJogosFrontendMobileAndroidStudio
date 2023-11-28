@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,39 +27,46 @@ import java.util.concurrent.Executors;
 
 import javax.xml.transform.OutputKeys;
 
+import okhttp3.Call;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
+import okio.BufferedSink;
 
 public class PerfilDev extends AppCompatActivity {
+    TextView ValorVendas;
     EditText SobreDev;
     EditText NomeDev;
-    Button BtnDelete;
-    Button btnSave;
-    Dev desenvolvedor = new Dev();
+    ImageButton btnDelete;
+    ImageButton btnSave;
     Storage storage = new Storage();
+    Dev desenvolvedor = new Dev();
     Gson gson = new Gson();
     private static final String URL = "http://10.0.2.2:8080/api/usuario/listarCliente/";
     private static final String URL_DELETE = "http://10.0.2.2:8080/api/usuario/deletarUser/";
+    private static final String URL_EDIT = "http://10.0.2.2:8080/api/usuario/alterarusuario/";
     private static final String PERFIL_DEV = "Perfil Dev";
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.perfil_dev);
-        SobreDev = findViewById(R.id.txtPerfilNomeDev);
+        SobreDev = findViewById(R.id.txtPerfilSobreDev);
         NomeDev = findViewById(R.id.txtPerfilNomeDev);
-        BtnDelete = findViewById(R.id.btnPerfilDevDelete);
+        ValorVendas = findViewById(R.id.txtValorVendas);
+        btnSave = findViewById(R.id.btnPerfilDevSave);
+        btnDelete = findViewById(R.id.btnPerfilDevDelete);
 
         carregarPerfil();
 
-        BtnDelete.setOnClickListener(e ->{
+        btnDelete.setOnClickListener(e ->{
             deleteDev();
         });
 
-
-        SobreDev = findViewById(R.id.txtPerfilSobreDev);
-        NomeDev = findViewById(R.id.txtPerfilNomeDev);
+        btnSave.setOnClickListener(e ->{
+            editDev();
+        });
 
     }
 
@@ -81,25 +90,25 @@ public class PerfilDev extends AppCompatActivity {
                         .build();
                 try(Response response = client.newCall(request).execute()) {
                     if(response.isSuccessful()){
-                        Log.i(PERFIL_DEV, "url: "+URL+storage.getId());
                         String resposta = response.body().string();
                         JsonObject ObjectJson = gson.fromJson(resposta, JsonObject.class);
                         desenvolvedor = gson.fromJson(ObjectJson, Dev.class);
 
                         Log.i(PERFIL_DEV, "Dev resposta: " + ObjectJson);
-                        Log.i(PERFIL_DEV, "DEV id: "+storage.getId()+ " idDev: "+storage.getId());
                         Log.i(PERFIL_DEV, "sucesso na requisição: " + response.code());
                         SobreDev.setText(desenvolvedor.getSobre());
                         NomeDev.setText(desenvolvedor.getNome());
+                        ValorVendas.setText(String.valueOf(desenvolvedor.getValorVendas()));
 
                     }else{
                         Log.i(PERFIL_DEV, "url: "+ URL + storage.getId());
                         Log.i(PERFIL_DEV, "Response: "+ response.body().string());
                         Log.e(PERFIL_DEV, "Erro na requisição: " + response.code());
-                        Log.e(PERFIL_DEV, "Erro na requisição: " + response.message());
+                        Log.e(PERFIL_DEV, response.message());
                     }
                 }catch (IOException e) {
                     Log.e(PERFIL_DEV, "Erro: ", e);
+                    Log.i(PERFIL_DEV, "url: "+ URL + storage.getId());
                     throw new RuntimeException(e);
                 }
             });
@@ -118,11 +127,38 @@ public class PerfilDev extends AppCompatActivity {
                     .build();
             try(Response response = client.newCall(request).execute()){
                 if(response.isSuccessful()){
+                    Log.i(PERFIL_DEV, "Usuário deletado "
+                            + response.message() + " - "
+                            + response.body().string());
                     Intent cadastrar = new Intent(this, SelectPlayer.class);
                     startActivity(cadastrar);
                 }
             }catch (IOException err) {
                 Log.e(PERFIL_DEV, "Erro " + err);
+            }
+        });
+    }
+
+    public void editDev(){
+        desenvolvedor.setNome(NomeDev.getText().toString());
+        desenvolvedor.setSobre(SobreDev.getText().toString());
+        String devJson = gson.toJson(desenvolvedor);
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() ->{
+            OkHttpClient client = new OkHttpClient();
+            RequestBody body = RequestBody.create(devJson, MediaType.get("application/json"));
+            Request request = new Request.Builder()
+                    .url(URL_EDIT+storage.getId())
+                    .header("Authorization", "Bearer " + storage.getToken())
+                    .put(body)
+                    .build();
+            Call call = client.newCall(request);
+            try(Response response = call.execute()){
+                String strResposta = response.body().string();
+                Log.i(PERFIL_DEV, "Dev Alterado: " + strResposta);
+            }catch (IOException err){
+                Log.e(PERFIL_DEV, "Erro ao alterar "+ err);
             }
         });
     }
