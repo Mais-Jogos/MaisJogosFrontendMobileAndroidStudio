@@ -7,6 +7,10 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.app.mais_jogos.admin.CadastroAdmin;
+import com.app.mais_jogos.dev.CadastroDevPrimeiraEtapa;
+import com.app.mais_jogos.user.CadastroUserPrimeiraEtapa;
+
 public class SelectPlayer extends AppCompatActivity {
 
     LinearLayout layoutAdmin;

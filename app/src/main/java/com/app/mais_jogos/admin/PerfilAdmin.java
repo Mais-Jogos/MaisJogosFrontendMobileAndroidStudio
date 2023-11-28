@@ -1,4 +1,4 @@
-package com.app.mais_jogos;
+package com.app.mais_jogos.admin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.app.mais_jogos.R;
+import com.app.mais_jogos.SelectPlayer;
 
 public class PerfilAdmin extends AppCompatActivity {
 

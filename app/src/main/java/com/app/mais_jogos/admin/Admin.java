@@ -1,4 +1,4 @@
-package com.app.mais_jogos;
+package com.app.mais_jogos.admin;
 
 public class Admin {
     private String nome;

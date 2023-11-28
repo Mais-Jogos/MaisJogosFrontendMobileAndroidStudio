@@ -1,4 +1,4 @@
-package com.app.mais_jogos;
+package com.app.mais_jogos.admin;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -7,8 +7,6 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.TextPaint;
 import android.util.Log;
 import android.widget.Button;
@@ -18,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.app.mais_jogos.R;
 import com.google.gson.Gson;
 
 import java.io.IOException;

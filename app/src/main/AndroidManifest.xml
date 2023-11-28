@@ -31,49 +31,49 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CadastroAdmin" android:exported="true">
+        <activity android:name=".admin.CadastroAdmin" android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".LoginAdmin" android:exported="true">
+        <activity android:name=".admin.LoginAdmin" android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CadastroDevPrimeiraEtapa" android:exported="true">
+        <activity android:name=".dev.CadastroDevPrimeiraEtapa" android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CadastroDevSegundaEtapa" android:exported="true">
+        <activity android:name=".dev.CadastroDevSegundaEtapa" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".PerfilDev" android:exported="true">
+        <activity android:name=".dev.PerfilDev" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CadastroUserPrimeiraEtapa" android:exported="true">
+        <activity android:name=".user.CadastroUserPrimeiraEtapa" android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CadastroUserSegundaEtapa" android:exported="true">
+        <activity android:name=".user.CadastroUserSegundaEtapa" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
-        <activity android:name=".PerfilUser" android:exported="true">
+        <activity android:name=".user.PerfilUser" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".PerfilAdmin" android:exported="true">
+        <activity android:name=".admin.PerfilAdmin" android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>

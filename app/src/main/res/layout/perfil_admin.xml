@@ -112,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imgPerfilDev">
 
         <TextView
-            android:id="@+id/txtPerfilSobreAdmin"
+            android:id="@+id/titleNomeDev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -124,7 +124,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editTextEmailAdmin"
+            android:id="@+id/txtPerfilNomeDev"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
@@ -134,7 +134,7 @@
             android:textColorHint="#FDFDFD" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/titleSobreDev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -146,7 +146,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editTextSenhaAdmin"
+            android:id="@+id/txtPerfilSobreDev"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"

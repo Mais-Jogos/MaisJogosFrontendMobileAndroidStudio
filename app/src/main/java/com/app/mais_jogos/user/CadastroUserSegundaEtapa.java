@@ -1,4 +1,4 @@
-package com.app.mais_jogos;
+package com.app.mais_jogos.user;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,6 +16,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.app.mais_jogos.Login;
+import com.app.mais_jogos.R;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 

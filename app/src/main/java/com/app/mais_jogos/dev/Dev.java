@@ -1,4 +1,4 @@
-package com.app.mais_jogos;
+package com.app.mais_jogos.dev;
 
 import java.io.Serializable;
 

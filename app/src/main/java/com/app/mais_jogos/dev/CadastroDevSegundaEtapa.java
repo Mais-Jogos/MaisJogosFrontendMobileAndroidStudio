@@ -1,4 +1,4 @@
-package com.app.mais_jogos;
+package com.app.mais_jogos.dev;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,6 +16,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.app.mais_jogos.Login;
+import com.app.mais_jogos.R;
+import com.app.mais_jogos.Storage;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -127,13 +130,18 @@ public class CadastroDevSegundaEtapa extends AppCompatActivity {
                 JsonObject convertObject = gson.fromJson(strResposta, JsonObject.class);
                 Log.i(CADASTRO_DEV, "Dev resposta: " + strResposta);
                 Resposta devData = gson.fromJson(strResposta, Resposta.class);
+
+                Storage s = new Storage();
+
+                s.setId(String.valueOf(devData.id));
+                s.setType("dev");
+                String storage = gson.toJson(s);
                 SharedPreferences sp = getApplicationContext().getSharedPreferences("CADASTRO", MODE_PRIVATE);
-                sp.edit().putInt("id", devData.id);
-                sp.edit().putString("type", "dev");
-                sp.edit().commit();
-                sp.edit().apply();
-                Log.i(CADASTRO_DEV, "nome dev " + devData.id);
-                Log.i(CADASTRO_DEV, "tipo " + sp.getString("type", null));
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("storage", storage);
+                editor.commit();
+
+                Log.i(CADASTRO_DEV, "Storage Cadastro " + storage);
                 sucessLoginDev.setText("Cadastrado com sucesso!");
             }catch (IOException e){
                 Log.e(CADASTRO_DEV, "Erro: ", e);

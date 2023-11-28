@@ -1,4 +1,4 @@
-package com.app.mais_jogos;
+package com.app.mais_jogos.admin;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,10 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.app.mais_jogos.R;
 import com.google.gson.Gson;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;

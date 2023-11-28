@@ -45,8 +45,10 @@
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoPerfilDev" />
+        app:layout_constraintTop_toBottomOf="@+id/infoPerfilDev"
+        app:layout_constraintVertical_bias="0.135" />
 
     <TextView
         android:id="@+id/titleDev"
@@ -63,44 +65,60 @@
         app:layout_constraintVertical_bias="0.297" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginBottom="108dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/infoPerfilDev"
         app:layout_constraintEnd_toEndOf="@+id/infoPerfilDev"
-        app:layout_constraintStart_toStartOf="@+id/infoPerfilDev">
+        app:layout_constraintStart_toStartOf="@+id/infoPerfilDev"
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfilDev">
 
         <TextView
-            android:id="@+id/txtPerfilNomeDev"
+            android:id="@+id/titleNomeDev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:fontFamily="@font/poppins_bold"
+            android:fontFamily="@font/silkscreen_regular"
+            android:padding="10dp"
             android:text="Nome"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txtPerfilNomeDev"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FDFDFD" />
 
         <TextView
-            android:id="@+id/titleSobre"
-            android:layout_width="wrap_content"
+            android:id="@+id/titleSobreDev"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Sobre mim"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
+            android:fontFamily="@font/silkscreen_regular"
+            android:padding="10dp"
+            android:text="Sobre"
+            android:textAlignment="viewStart"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/txtPerfilSobreDev"
             android:layout_width="match_parent"
-            android:layout_height="18dp"
-            android:layout_marginBottom="40dp"
-            android:fontFamily="@font/poppins"
-            android:text="Sobre"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:gravity="top|left"
+            android:inputType="text|textLongMessage|textMultiLine"
+            android:textColor="#FFFFFF"
+            tools:text="a" />
 
     </LinearLayout>
 
@@ -116,5 +134,31 @@
         app:layout_constraintStart_toStartOf="@+id/infoPerfilDev"
         app:layout_constraintTop_toBottomOf="@+id/titleDev"
         app:srcCompat="@drawable/devboy" />
+
+    <ImageButton
+        android:id="@+id/btnPerfilDevSave"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_image"
+        app:layout_constraintEnd_toStartOf="@+id/btnPerfilDevDelete"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRequerimento"
+        app:srcCompat="@drawable/diskette"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/btnPerfilDevDelete"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="80dp"
+        android:background="@drawable/border_image"
+        android:src="@drawable/trashcan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRequerimento"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
