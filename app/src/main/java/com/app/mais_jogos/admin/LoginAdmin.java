@@ -41,14 +41,14 @@ public class LoginAdmin extends AppCompatActivity {
 
     Button btnEntrar;
 
-    private final String URL = "http://192.168.15.135:8080/api/adm/login";
+    private final String URL = "http://10.0.2.2:8080/api/adm/login";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_admin);
 
-        cadastroAdmin = findViewById(R.id.txtLoginCadastro);
+        cadastroAdmin = findViewById(R.id.txtLoginCadastroAdmin);
         inputEmail = findViewById(R.id.txtEmailLogin);
         inputSenha = findViewById(R.id.txtSenhaLogin);
         erroLogin = findViewById(R.id.erroLogin);

@@ -113,4 +113,26 @@
         android:textStyle="bold"
         app:backgroundTint="@null" />
 
+    <TextView
+        android:id="@+id/lblNaoTemContaAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="Não tem uma conta?"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txtLoginCadastroAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="Faça seu cadastro"
+        android:textColor="#7900fb"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
 </LinearLayout>

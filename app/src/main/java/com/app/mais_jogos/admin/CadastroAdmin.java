@@ -46,7 +46,7 @@ public class CadastroAdmin extends AppCompatActivity {
     TextView erroInputs;
     Button btnCadastrar;
 
-    private static final String URL = "http://192.168.15.135:8080/api/adm/salvar";
+    private static final String URL = "http://10.0.2.2:8080/api/adm/salvar";
 
 
     @SuppressLint("SetTextI18n")

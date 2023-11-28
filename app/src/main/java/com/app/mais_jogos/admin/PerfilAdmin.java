@@ -42,7 +42,7 @@ public class PerfilAdmin extends AppCompatActivity {
     Button salvaAdmin;
     Button cadastraAvatar;
 
-    private static final String URL = "http://192.168.15.135:8080/api/adm";
+    private static final String URL = "http://10.0.2.2:8080/api/adm";
 
 
     @Override
