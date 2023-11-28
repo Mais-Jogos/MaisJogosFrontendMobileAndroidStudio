@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <ImageView
+        android:id="@+id/imageView74"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        tools:layout_editor_absoluteY="31dp" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Skin"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="36dp" />
+
+    <ImageView
+        android:id="@+id/imageView72"
+        android:layout_width="394dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/background_with_border"
+        tools:layout_editor_absoluteY="319dp" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Excluir"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="305dp"
+        tools:layout_editor_absoluteY="421dp" />
+
+    <ImageView
+        android:id="@+id/imageView66"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="342dp"
+        tools:layout_editor_absoluteY="547dp" />
+
+    <EditText
+        android:id="@+id/editTextText19"
+        android:layout_width="97dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Silveira "
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="481dp" />
+
+    <ImageView
+        android:id="@+id/imageView58"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="342dp"
+        tools:layout_editor_absoluteY="381dp" />
+
+    <ImageView
+        android:id="@+id/imageView71"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/kapicoin_icon_1"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="538dp" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Editar"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/button21"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Editar"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="587dp" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Excluir"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="305dp"
+        tools:layout_editor_absoluteY="421dp" />
+
+    <ImageView
+        android:id="@+id/imageView56"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="342dp"
+        tools:layout_editor_absoluteY="381dp" />
+
+    <ImageView
+        android:id="@+id/imageView41"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="309dp"
+        tools:layout_editor_absoluteY="158dp" />
+
+    <EditText
+        android:id="@+id/editTextText14"
+        android:layout_width="93dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=" $ 50"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="249dp"
+        tools:layout_editor_absoluteY="359dp" />
+
+    <ImageView
+        android:id="@+id/imageView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/kapicoin_icon_1"
+        tools:layout_editor_absoluteX="212dp"
+        tools:layout_editor_absoluteY="199dp" />
+
+    <EditText
+        android:id="@+id/editTextText6"
+        android:layout_width="93dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=" $ 50"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="237dp"
+        tools:layout_editor_absoluteY="186dp" />
+
+    <LinearLayout
+        android:layout_width="127dp"
+        android:layout_height="501dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="135dp">
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="16dp"
+            app:srcCompat="@drawable/araraazulcyberpunk" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView31"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:srcCompat="@drawable/capivarapunkpixelart" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="29dp" />
+
+        <ImageView
+            android:id="@+id/imageView33"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:srcCompat="@drawable/image_3" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView35"
+        android:layout_width="394dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/background_with_border"
+        tools:layout_editor_absoluteY="142dp" />
+
+    <ImageView
+        android:id="@+id/imageView42"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="330dp"
+        tools:layout_editor_absoluteY="208dp" />
+
+    <EditText
+        android:id="@+id/editTextText17"
+        android:layout_width="97dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Silveira "
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="481dp" />
+
+    <EditText
+        android:id="@+id/editTextText16"
+        android:layout_width="93dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=" $ 50"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="249dp"
+        tools:layout_editor_absoluteY="359dp" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Excluir"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="293dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <ImageView
+        android:id="@+id/imageView69"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="497dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Editar"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <ImageView
+        android:id="@+id/imageView63"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/kapicoin_icon_1"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="372dp" />
+
+    <ImageView
+        android:id="@+id/imageView67"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="497dp" />
+
+    <EditText
+        android:id="@+id/editTextText15"
+        android:layout_width="97dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Silveira "
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="315dp" />
+
+    <EditText
+        android:id="@+id/editTextText20"
+        android:layout_width="93dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=" $ 50"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="249dp"
+        tools:layout_editor_absoluteY="525dp" />
+
+    <ImageView
+        android:id="@+id/imageView59"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="331dp" />
+
+    <ImageView
+        android:id="@+id/imageView45"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="330dp"
+        tools:layout_editor_absoluteY="208dp" />
+
+    <ImageView
+        android:id="@+id/imageView62"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="331dp" />
+
+    <ImageView
+        android:id="@+id/imageView61"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="331dp" />
+
+    <ImageView
+        android:id="@+id/imageView65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/kapicoin_icon_1"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="538dp" />
+
+    <EditText
+        android:id="@+id/editTextText18"
+        android:layout_width="93dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=" $ 50"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="249dp"
+        tools:layout_editor_absoluteY="525dp" />
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Editar"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="421dp" />
+
+    <EditText
+        android:id="@+id/editTextText13"
+        android:layout_width="97dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Silveira "
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="315dp" />
+
+    <ImageView
+        android:id="@+id/imageView43"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="158dp" />
+
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Editar"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="587dp" />
+
+    <ImageView
+        android:id="@+id/imageView57"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/kapicoin_icon_1"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="372dp" />
+
+    <ImageView
+        android:id="@+id/imageView73"
+        android:layout_width="391dp"
+        android:layout_height="166dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/background_with_border"
+        tools:layout_editor_absoluteY="486dp" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Editar"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="421dp" />
+
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Excluir"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="305dp"
+        tools:layout_editor_absoluteY="587dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Excluir"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="293dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <EditText
+        android:id="@+id/editTextText8"
+        android:layout_width="97dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Silveira "
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="212dp"
+        tools:layout_editor_absoluteY="142dp" />
+
+    <ImageView
+        android:id="@+id/imageView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/kapicoin_icon_1"
+        tools:layout_editor_absoluteX="212dp"
+        tools:layout_editor_absoluteY="199dp" />
+
+    <ImageView
+        android:id="@+id/imageView47"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="309dp"
+        tools:layout_editor_absoluteY="158dp" />
+
+    <Button
+        android:id="@+id/button20"
+        android:layout_width="89dp"
+        android:layout_height="45dp"
+        android:text="Excluir"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="305dp"
+        tools:layout_editor_absoluteY="587dp" />
+
+    <ImageView
+        android:id="@+id/imageView60"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="331dp" />
+
+    <ImageView
+        android:id="@+id/imageView46"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="158dp" />
+
+    <ImageView
+        android:id="@+id/imageView64"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="342dp"
+        tools:layout_editor_absoluteY="547dp" />
+
+    <ImageView
+        android:id="@+id/imageView70"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="497dp" />
+
+    <EditText
+        android:id="@+id/editTextText5"
+        android:layout_width="97dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Silveira "
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="212dp"
+        tools:layout_editor_absoluteY="142dp" />
+
+    <ImageView
+        android:id="@+id/imageView68"
+        android:layout_width="33dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gradient_button"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="497dp" />
+
+    <EditText
+        android:id="@+id/editTextText7"
+        android:layout_width="93dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=" $ 50"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="237dp"
+        tools:layout_editor_absoluteY="186dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
