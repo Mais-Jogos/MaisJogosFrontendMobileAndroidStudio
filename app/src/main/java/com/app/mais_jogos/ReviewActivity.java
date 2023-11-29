@@ -62,7 +62,7 @@ public class ReviewActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.editar_review);
-        btnSalvar = findViewById(R.id.button);
+        btnSalvar = findViewById(R.id.btnSalvarReviewPFV);
         txtAvaliacao = findViewById(R.id.txtAvaliacao);
         txtDataPostagem = findViewById(R.id.txtDataPostagem);
         txtDescricao = findViewById(R.id.txtDescricao);

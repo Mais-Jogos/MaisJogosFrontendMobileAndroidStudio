@@ -18,9 +18,21 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <activity android:name=".ReviewActivity" android:exported="true">
+        <activity android:name=".AvatarActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".AvatarLoja" android:exported="true">
+            <intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ReviewActivity" android:exported="true">
+            <intent-filter>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -29,7 +41,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity android:name=".Home" android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
