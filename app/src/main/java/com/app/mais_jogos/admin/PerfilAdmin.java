@@ -1,6 +1,7 @@
 package com.app.mais_jogos.admin;
 import com.app.mais_jogos.R;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mais_jogos.SelectPlayer;
+import com.app.mais_jogos.avatar.AvatarActivity;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -45,6 +47,7 @@ public class PerfilAdmin extends AppCompatActivity {
     private static final String URL = "http://10.0.2.2:8080/api/adm";
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +61,7 @@ public class PerfilAdmin extends AppCompatActivity {
         inputSenha = findViewById(R.id.editTextSenhaAdmin);
         excluirAdmin = findViewById(R.id.btnExcluirAdmin);
         salvaAdmin = findViewById(R.id.btnSalvarAdmin);
-        cadastraAvatar = findViewById(R.id.btnCadastroAdmin);
+        cadastraAvatar = findViewById(R.id.btnCadastroAvatar);
 
         carregaDadosApi(idAdmin);
 
@@ -74,6 +77,13 @@ public class PerfilAdmin extends AppCompatActivity {
             editaInformacoesAdmin(idAdmin, adm);
             modalEditarInformacoes("Dados atualizados!");
         });
+
+        cadastraAvatar.setOnClickListener(
+                e -> {
+                    Intent intent = new Intent(getApplicationContext(), AvatarActivity.class);
+                    startActivity(intent);
+                }
+        );
     }
 
     private void carregaDadosApi(int id){
@@ -179,6 +189,8 @@ public class PerfilAdmin extends AppCompatActivity {
                 Response response = call.execute();
                 String responseString = response.body().string();
                 Log.i("AdminCadastro","Sucesso!:\n" + responseString);
+
+
 
                 carregaDadosApi(id);
             } catch (IOException e) {

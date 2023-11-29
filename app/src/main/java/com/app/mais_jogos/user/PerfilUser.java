@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.app.mais_jogos.R;
 import com.app.mais_jogos.SelectPlayer;
 import com.app.mais_jogos.Storage;
+import com.app.mais_jogos.review.ReviewActivity;
 import com.app.mais_jogos.user.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -34,6 +36,8 @@ public class PerfilUser extends AppCompatActivity {
     EditText NomeUser;
     ImageButton btnDelete;
     ImageButton btnSave;
+
+    Button btnReview;
     Storage storage = new Storage();
     User usuario = new User();
     Gson gson = new Gson();
@@ -49,7 +53,7 @@ public class PerfilUser extends AppCompatActivity {
         NomeUser = findViewById(R.id.txtPerfilNomeUser);
         btnSave = findViewById(R.id.btnPerfilUserSave);
         btnDelete = findViewById(R.id.btnPerfilUserDelete);
-
+        btnReview = findViewById(R.id.btnReview);
         carregarPerfil();
 
         btnDelete.setOnClickListener(e ->{
@@ -59,7 +63,13 @@ public class PerfilUser extends AppCompatActivity {
         btnSave.setOnClickListener(e ->{
             editUser();
         });
+        btnReview.setOnClickListener(
+                e-> {
 
+                    Intent review = new Intent(this, ReviewActivity.class);
+                    startActivity(review);
+                }
+        );
     }
 
     public void carregarPerfil(){
