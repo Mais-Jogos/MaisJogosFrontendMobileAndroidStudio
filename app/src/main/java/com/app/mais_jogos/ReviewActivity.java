@@ -1,10 +1,13 @@
 package com.app.mais_jogos;
 
+import static com.app.mais_jogos.R.id.btnReview;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
@@ -31,9 +34,14 @@ public class ReviewActivity extends AppCompatActivity {
     private static final String BASE_URL = "http://10.0.2.2:8080";
     private static final String APP_CAFE = "APP_REVIEW";
     List<Review> lista = new ArrayList<>();
+    Button btnSalvar;
 
-    ImageButton btnSalvar;
+    EditText txtDescricao;
+    EditText txtDataPostagem;
 
+    EditText txtAvaliacao;
+
+    EditText txtTituloReview;
     class ResponseReview{
 
         private Integer id;
@@ -53,18 +61,22 @@ public class ReviewActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.review_user);
-        btnSalvar = findViewById(R.id.btnSalvar);
+        setContentView(R.layout.editar_review);
+        btnSalvar = findViewById(R.id.button);
+        txtAvaliacao = findViewById(R.id.txtAvaliacao);
+        txtDataPostagem = findViewById(R.id.txtDataPostagem);
+        txtDescricao = findViewById(R.id.txtDescricao);
+        txtTituloReview = findViewById(R.id.editTextText5);
         btnSalvar.setOnClickListener( e -> salvar());
     }
 
     private void salvar() {
         Review c = new Review();
-        c.setDataReview("31-10-2003");
-        c.setDescricaoReview("AAAAAAA");
-        c.setNotaReview(20.20);
-        c.setIdJogo(2);
-        c.setTituloReview("Um titulo");
+        c.setDataReview(txtDataPostagem.getText().toString());
+        c.setDescricaoReview(txtDescricao.getText().toString());
+        c.setNotaReview(Double.parseDouble(txtAvaliacao.getText().toString()));
+        c.setIdJogo(1);
+        c.setTituloReview(txtTituloReview.getText().toString());
         c.setIdUser(1);
 
         lista.add(c);

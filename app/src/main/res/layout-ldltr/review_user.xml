@@ -101,19 +101,6 @@
         app:layout_constraintVertical_bias="0.688"
         app:srcCompat="@drawable/_1bd6f2345244a7bdd3b4db99f9398b2" />
 
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="33dp"
-        android:layout_height="20dp"
-        android:background="@drawable/gradient_button"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-        app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.92"
-        app:layout_constraintStart_toEndOf="@+id/imageView38"
-        app:layout_constraintTop_toTopOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.934"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
     <TextView
         android:id="@+id/textView34"
         android:layout_width="wrap_content"
@@ -145,7 +132,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
-        android:text="Red ronin"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/imageView10"
         app:layout_constraintEnd_toEndOf="@+id/imageView10"
@@ -210,7 +196,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Data de postagem 14/05"
+        android:text="Data de postagem"
         android:textColor="#FFFFFF"
         android:textSize="16px"
         app:layout_constraintBottom_toBottomOf="@+id/imageView10"
@@ -259,19 +245,6 @@
         app:layout_constraintStart_toEndOf="@+id/imageView48"
         app:layout_constraintTop_toTopOf="@+id/imageView51"
         app:layout_constraintVertical_bias="0.638" />
-
-    <ImageView
-        android:id="@+id/imageView49"
-        android:layout_width="33dp"
-        android:layout_height="20dp"
-        android:background="@drawable/gradient_button"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-        app:layout_constraintEnd_toEndOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.92"
-        app:layout_constraintStart_toEndOf="@+id/imageView38"
-        app:layout_constraintTop_toTopOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.934"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -324,11 +297,11 @@
         app:layout_constraintVertical_bias="0.126" />
 
     <TextView
-        android:id="@+id/textView41"
+        android:id="@+id/txtNomeReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
         android:shadowColor="#FFFFFF"
-        android:text="Red ronin"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/imageView51"
         app:layout_constraintEnd_toEndOf="@+id/imageView51"
@@ -338,7 +311,7 @@
         app:layout_constraintVertical_bias="0.136" />
 
     <ImageButton
-        android:id="@+id/btnSalvar"
+        android:id="@+id/btnSalvarReview"
         android:layout_width="30dp"
         android:layout_height="27dp"
         android:backgroundTint="#673AB7"
@@ -349,5 +322,43 @@
         app:layout_constraintTop_toTopOf="@+id/imageView51"
         app:layout_constraintVertical_bias="0.9"
         app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="20/11"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="16px"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="29dp"
+        android:layout_height="26dp"
+        android:backgroundTint="#673AB7"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintStart_toStartOf="@+id/imageView10"
+        app:layout_constraintTop_toTopOf="@+id/imageView10"
+        app:layout_constraintVertical_bias="0.927"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <ImageButton
+        android:id="@+id/aaaaaaaaaaaaaaaaaa"
+        android:layout_width="26dp"
+        android:layout_height="21dp"
+        android:backgroundTint="#673AB7"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintHorizontal_bias="0.695"
+        app:layout_constraintStart_toEndOf="@+id/imageView38"
+        app:layout_constraintTop_toTopOf="@+id/imageView10"
+        app:layout_constraintVertical_bias="0.903"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
