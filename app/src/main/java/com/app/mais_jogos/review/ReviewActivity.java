@@ -34,7 +34,7 @@ import okhttp3.Response;
 public class ReviewActivity extends AppCompatActivity {
 
 
-    private static final String BASE_URL = "http://10.0.2.2:8080";
+    private static final String BASE_URL = "https://backendmaisjogos-production.up.railway.app";
     private static final String APP_REVIEW = "App Review";
     List<Review> lista = new ArrayList<>();
     Button btnSalvar;
@@ -153,17 +153,14 @@ public class ReviewActivity extends AppCompatActivity {
                     editor.putInt("id", responseReview.id);
                     editor.apply();
 
-                    sucessReview.setText("Review cadastrada com sucesso!");
                     Intent intent = new Intent(ReviewActivity.this, ReviewUser.class);
                     startActivity(intent);
                 } else {
-                    errorReview.setText("Ocorreu um erro, tente novamente!");
                     Log.e(APP_REVIEW, "Erro" + response.body().string() + " - " + response.code());
                 }
 
             } catch (IOException e) {
                 Log.e(APP_REVIEW, "Erro", e);
-                errorReview.setText("Ocorreu um erro, tente novamente!");
                 throw new RuntimeException(e);
             }
         });

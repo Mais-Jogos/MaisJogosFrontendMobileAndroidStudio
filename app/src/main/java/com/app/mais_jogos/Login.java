@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
     Button btnLogin;
     Storage storage = new Storage();
     Gson gson = new Gson();
-    private final String URL = "http://10.0.2.2:8080/login";
+    private final String URL = "https://backendmaisjogos-production.up.railway.app/login";
     private static final String LOGIN = "Login";
 
     class DadosLogin {

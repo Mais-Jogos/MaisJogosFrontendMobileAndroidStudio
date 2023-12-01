@@ -1,5 +1,6 @@
 package com.app.mais_jogos.user;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,11 +11,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mais_jogos.R;
 import com.app.mais_jogos.SelectPlayer;
 import com.app.mais_jogos.Storage;
+import com.app.mais_jogos.dev.PerfilDev;
 import com.app.mais_jogos.review.ReviewActivity;
 import com.app.mais_jogos.user.User;
 import com.google.gson.Gson;
@@ -41,9 +44,9 @@ public class PerfilUser extends AppCompatActivity {
     Storage storage = new Storage();
     User usuario = new User();
     Gson gson = new Gson();
-    private static final String URL = "http://10.0.2.2:8080/api/usuario/listarCliente/";
-    private static final String URL_DELETE = "http://10.0.2.2:8080/api/usuario/deletarUser/";
-    private static final String URL_EDIT = "http://10.0.2.2:8080/api/usuario/alterarusuario/";
+    private static final String URL = "https://backendmaisjogos-production.up.railway.app/api/usuario/listarCliente/";
+    private static final String URL_DELETE = "https://backendmaisjogos-production.up.railway.app/api/usuario/deletarUser/";
+    private static final String URL_EDIT = "https://backendmaisjogos-production.up.railway.app/api/usuario/alterarusuario/";
     private static final String PERFIL_USER = "Perfil User";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,11 +60,12 @@ public class PerfilUser extends AppCompatActivity {
         carregarPerfil();
 
         btnDelete.setOnClickListener(e ->{
-            deleteUser();
+            carregarModalDelete();
         });
 
         btnSave.setOnClickListener(e ->{
             editUser();
+            modalEditarInformacoes("Dados atualizados!");
         });
         btnReview.setOnClickListener(
                 e-> {
@@ -71,7 +75,36 @@ public class PerfilUser extends AppCompatActivity {
                 }
         );
     }
+    private void carregarModalDelete(){
+        // Modal
+        AlertDialog.Builder confirmaExlusao = new AlertDialog.Builder(PerfilUser.this);
+        confirmaExlusao.setTitle("Atenção!!");
+        confirmaExlusao.setMessage("Tem certeza que deseja excluir a sua conta?\nEssa ação não pode ser desfeita!");
+        confirmaExlusao.setCancelable(false);
 
+        confirmaExlusao.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                deleteUser();
+            }
+        });
+
+        confirmaExlusao.setNegativeButton("Não", null);
+
+        confirmaExlusao.create().show();
+    }
+    private void modalEditarInformacoes(String texto){
+        AlertDialog.Builder confirmaEdicao = new AlertDialog.Builder(PerfilUser.this);
+        confirmaEdicao.setTitle("Perfil Dev");
+        confirmaEdicao.setMessage(texto);
+        confirmaEdicao.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Log.i(PERFIL_USER, "Dados atualizados!");
+            }
+        });
+        confirmaEdicao.create().show();
+    }
     public void carregarPerfil(){
         SharedPreferences sp = this.getSharedPreferences("CADASTRO", MODE_PRIVATE);
         String storageJson = sp.getString("storage", null);

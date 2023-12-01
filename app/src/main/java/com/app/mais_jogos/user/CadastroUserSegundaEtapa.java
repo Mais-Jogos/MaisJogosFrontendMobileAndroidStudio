@@ -42,7 +42,7 @@ public class CadastroUserSegundaEtapa extends AppCompatActivity {
     EditText confirmarSenhaUser;
     Button btnCadastraUser;
     Gson gson = new Gson();
-    private static final String URL = "http://10.0.2.2:8080/api/usuario/salvar";
+    private static final String URL = "https://backendmaisjogos-production.up.railway.app/api/usuario/salvar";
     private static final String CADASTRO_USER = "Cadastro User";
 
     @Override
@@ -136,7 +136,9 @@ public class CadastroUserSegundaEtapa extends AppCompatActivity {
                     Intent login = new Intent(this, Login.class);
                     startActivity(login);
                 }else{
-                    Log.e(CADASTRO_USER, "Erro na requisição: " + response.code());
+                    Log.e(CADASTRO_USER, "Erro na requisição: " + response.code() +
+                            " - " + response.body().string() + " - " + response.message() +
+                            " - " + response.request());
                     errorUser2.setText("Ocorreu um erro, tente novamente!");
                 }
             }catch (IOException e){

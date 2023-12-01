@@ -48,7 +48,7 @@ public class CadastroAdmin extends AppCompatActivity {
     Button btnCadastrar;
     TextView login;
 
-    private static final String URL = "http://10.0.2.2:8080/api/adm/salvar";
+    private static final String URL = "https://backendmaisjogos-production.up.railway.app/api/adm/salvar";
 
 
     @SuppressLint("SetTextI18n")

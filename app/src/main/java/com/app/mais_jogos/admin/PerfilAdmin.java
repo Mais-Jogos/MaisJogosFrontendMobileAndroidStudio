@@ -44,7 +44,7 @@ public class PerfilAdmin extends AppCompatActivity {
     Button salvaAdmin;
     Button cadastraAvatar;
 
-    private static final String URL = "http://10.0.2.2:8080/api/adm";
+    private static final String URL = "https://backendmaisjogos-production.up.railway.app/api/adm";
 
 
     @SuppressLint("MissingInflatedId")

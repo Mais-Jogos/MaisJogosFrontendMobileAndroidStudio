@@ -127,12 +127,14 @@
         <Button
             android:id="@+id/btnVoltarReview"
             android:layout_width="112dp"
-            android:layout_height="37dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="102dp"
             android:background="@drawable/gradient_button"
             android:text="Voltar"
             android:textSize="10sp"
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnSalvarReviewPFV"
             app:layout_constraintStart_toEndOf="@+id/imgVoltarReview"
             app:layout_constraintTop_toTopOf="@+id/imgVoltarReview"
             app:layout_constraintVertical_bias="0.0" />
@@ -156,7 +158,7 @@
         <Button
             android:id="@+id/btnSalvarReviewPFV"
             android:layout_width="110dp"
-            android:layout_height="39dp"
+            android:layout_height="35dp"
             android:background="@drawable/gradient_button"
             android:text="SALVAR"
             android:textSize="10sp"
@@ -245,13 +247,13 @@
         <Button
             android:id="@+id/btnExcluirReview"
             android:layout_width="112dp"
-            android:layout_height="37dp"
+            android:layout_height="35dp"
             android:layout_marginEnd="108dp"
             android:layout_marginBottom="4dp"
             android:background="@drawable/gradient_button"
-            app:backgroundTint="@null"
             android:text="Excluir"
             android:textSize="10sp"
+            app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDescricao"
@@ -313,7 +315,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="667dp" />
+        tools:layout_editor_absoluteY="678dp" />
 
     <TextView
         android:id="@+id/sucessReview"
@@ -324,6 +326,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="648dp" />
+        tools:layout_editor_absoluteY="659dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

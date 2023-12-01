@@ -41,7 +41,7 @@ public class LoginAdmin extends AppCompatActivity {
 
     Button btnEntrar;
 
-    private final String URL = "http://10.0.2.2:8080/api/adm/login";
+    private final String URL = "https://backendmaisjogos-production.up.railway.app/api/adm/login";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

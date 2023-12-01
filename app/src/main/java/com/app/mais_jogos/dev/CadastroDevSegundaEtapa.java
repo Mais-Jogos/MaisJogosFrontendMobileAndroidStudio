@@ -42,7 +42,7 @@ public class CadastroDevSegundaEtapa extends AppCompatActivity {
     EditText confirmarSenhaDev;
     Button btnCadastraDev;
     Gson gson = new Gson();
-    private static final String URL = "http://10.0.2.2:8080/api/usuario/salvar";
+    private static final String URL = "https://backendmaisjogos-production.up.railway.app/api/usuario/salvar";
     private static final String CADASTRO_DEV = "Cadastro Dev";
 
     @Override

@@ -29,7 +29,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class ReviewUser extends AppCompatActivity {
-    private static final String URL = "http://10.0.2.2:8080/api/review";
+    private static final String URL = "https://backendmaisjogos-production.up.railway.app/api/review";
 
     class ResponseReview{
 

@@ -40,9 +40,9 @@ public class PerfilDev extends AppCompatActivity {
     Storage storage = new Storage();
     Dev desenvolvedor = new Dev();
     Gson gson = new Gson();
-    private static final String URL = "http://10.0.2.2:8080/api/usuario/listarCliente/";
-    private static final String URL_DELETE = "http://10.0.2.2:8080/api/usuario/deletarUser/";
-    private static final String URL_EDIT = "http://10.0.2.2:8080/api/usuario/alterarusuario/";
+    private static final String URL = "https://backendmaisjogos-production.up.railway.app/api/usuario/listarCliente/";
+    private static final String URL_DELETE = "https://backendmaisjogos-production.up.railway.app/api/usuario/deletarUser/";
+    private static final String URL_EDIT = "https://backendmaisjogos-production.up.railway.app/api/usuario/alterarusuario/";
     private static final String PERFIL_DEV = "Perfil Dev";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,8 +61,8 @@ public class PerfilDev extends AppCompatActivity {
         });
 
         btnSave.setOnClickListener(e ->{
-            modalEditarInformacoes("Dados atualizados!");
             editDev();
+            modalEditarInformacoes("Dados atualizados!");
         });
 
     }

@@ -33,7 +33,7 @@ import okhttp3.Response;
 
 public class AvatarActivity extends AppCompatActivity {
 
-    private static final String BASE_URL = "http://10.0.2.2:8080";
+    private static final String BASE_URL = "https://backendmaisjogos-production.up.railway.app";
     private static final String APP_AVATAR = "App Avatar";
 
     List<Avatar> lista = new ArrayList<>();
@@ -123,17 +123,14 @@ public class AvatarActivity extends AppCompatActivity {
                     editor.putInt("id", responseAvatar.id);
                     editor.apply();
 
-                    sucessSkin.setText("Skin cadastrada com sucesso!");
                     Intent intent = new Intent(this, AvatarLoja.class);
                     startActivity(intent);
                 }else {
-                    errorSkin.setText("Ocorreu um erro, tente novamente!");
                     Log.e(APP_AVATAR, "Erro" + response.body().string() + " - " + response.code());
                 }
 
             } catch (IOException e) {
                 Log.e(APP_AVATAR, "Erro", e);
-                errorSkin.setText("Ocorreu um erro, tente novamente!");
                 throw new RuntimeException(e);
             }
         });

@@ -30,7 +30,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class AvatarLoja extends AppCompatActivity {
-    private static final String URL = "http://10.0.2.2:8080/api/avatar";
+    private static final String URL = "https://backendmaisjogos-production.up.railway.app/api/avatar";
     class ResponseAvatar {
         private Integer id;
         private String nome;
