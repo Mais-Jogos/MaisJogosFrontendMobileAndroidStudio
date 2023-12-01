@@ -8,7 +8,7 @@
     tools:ignore="MissingDefaultResource">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titleReview"
         android:layout_width="194dp"
         android:layout_height="38dp"
         android:layout_marginTop="32dp"
@@ -22,13 +22,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imgJogoReview"
         android:layout_width="392dp"
         android:layout_height="196dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/titleReview"
         app:srcCompat="@drawable/_1bd6f2345244a7bdd3b4db99f9398b2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.435"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5">
+        app:layout_constraintTop_toBottomOf="@+id/txtTituloReview">
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -52,31 +52,31 @@
             app:layout_constraintVertical_bias="0.476">
 
             <ImageView
-                android:id="@+id/imageView12"
+                android:id="@+id/star1"
                 android:layout_width="23dp"
                 android:layout_height="21dp"
                 app:srcCompat="@android:drawable/btn_star_big_on" />
 
             <ImageView
-                android:id="@+id/imageView11"
+                android:id="@+id/star2"
                 android:layout_width="23dp"
                 android:layout_height="21dp"
                 app:srcCompat="@android:drawable/btn_star_big_on" />
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/star3"
                 android:layout_width="23dp"
                 android:layout_height="21dp"
                 app:srcCompat="@android:drawable/btn_star" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/star4"
                 android:layout_width="23dp"
                 android:layout_height="21dp"
                 app:srcCompat="@android:drawable/btn_star" />
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/star5"
                 android:layout_width="23dp"
                 android:layout_height="21dp"
                 app:srcCompat="@android:drawable/btn_star" />
@@ -90,7 +90,7 @@
             android:layout_weight="1"
             android:backgroundTint="#FFFFFF"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="number"
             android:textColor="#FFFFFF"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
@@ -113,28 +113,32 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
+        android:id="@+id/reviewVoltarSalvar"
         android:layout_width="388dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnVoltarReview"
             android:layout_width="112dp"
             android:layout_height="37dp"
+            android:background="@drawable/gradient_button"
             android:text="Voltar"
             android:textSize="10sp"
+            app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/imageView3"
+            app:layout_constraintStart_toEndOf="@+id/imgVoltarReview"
+            app:layout_constraintTop_toTopOf="@+id/imgVoltarReview"
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imgVoltarReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -142,7 +146,7 @@
             app:srcCompat="@android:drawable/ic_menu_revert" />
 
         <ImageView
-            android:id="@+id/imageView30"
+            android:id="@+id/imgSalvarReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -153,17 +157,19 @@
             android:id="@+id/btnSalvarReviewPFV"
             android:layout_width="110dp"
             android:layout_height="39dp"
+            android:background="@drawable/gradient_button"
             android:text="SALVAR"
             android:textSize="10sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView30"
-            app:layout_constraintTop_toTopOf="@+id/imageView30" />
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toStartOf="@+id/imgSalvarReview"
+            app:layout_constraintTop_toTopOf="@+id/imgSalvarReview" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout5"
+        android:id="@+id/Data"
         android:layout_width="363dp"
-        android:layout_height="68dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.416"
@@ -171,7 +177,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/titleDescricaoReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Minha descrição"
@@ -190,32 +196,35 @@
             android:inputType="date"
             android:textColor="#FFFFFF"
             android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintBottom_toBottomOf="@+id/titleDataReview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView5" />
+            app:layout_constraintStart_toEndOf="@+id/titleDataReview" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/titleDataReview"
             android:layout_width="155dp"
             android:layout_height="33dp"
             android:layout_marginStart="72dp"
             android:text="Data de postagem:"
             android:textColor="#FBFBFB"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/titleDescricaoReview" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="361dp"
+        android:id="@+id/txtReview"
+        android:layout_width="0dp"
         android:layout_height="212dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/errorReview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
-        app:layout_constraintVertical_bias="0.62">
+        app:layout_constraintTop_toBottomOf="@+id/Data"
+        app:layout_constraintVertical_bias="0.0">
 
         <EditText
             android:id="@+id/txtDescricao"
@@ -223,9 +232,10 @@
             android:layout_height="157dp"
             android:backgroundTint="#FFFFFF"
             android:ems="10"
+            android:gravity="top|left"
             android:inputType="textMultiLine"
             android:maxLines="6"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -233,11 +243,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnExcluirReview"
             android:layout_width="112dp"
             android:layout_height="37dp"
             android:layout_marginEnd="108dp"
             android:layout_marginBottom="4dp"
+            android:background="@drawable/gradient_button"
+            app:backgroundTint="@null"
             android:text="Excluir"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -246,22 +258,22 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
-            android:id="@+id/imageView27"
+            android:id="@+id/imgExcluirReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button3"
+            app:layout_constraintEnd_toStartOf="@+id/btnExcluirReview"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/button3"
+            app:layout_constraintTop_toTopOf="@+id/btnExcluirReview"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@android:drawable/ic_menu_delete" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imgBtnVoltarReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -271,16 +283,16 @@
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgReview"
         android:layout_width="55dp"
         android:layout_height="41dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="@+id/titleReview"
+        app:layout_constraintEnd_toStartOf="@+id/titleReview"
+        app:layout_constraintTop_toTopOf="@+id/titleReview"
         app:srcCompat="@drawable/_icon__book_" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/txtTituloReview"
         android:layout_width="115dp"
         android:layout_height="36dp"
         android:backgroundTint="#FFFFFF"
@@ -291,6 +303,27 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/imgJogoReview" />
+
+    <TextView
+        android:id="@+id/errorReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF2525"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="667dp" />
+
+    <TextView
+        android:id="@+id/sucessReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#4CAF50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="648dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

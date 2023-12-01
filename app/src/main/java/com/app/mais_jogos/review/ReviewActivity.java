@@ -1,20 +1,22 @@
 package com.app.mais_jogos.review;
 
-import static com.app.mais_jogos.R.id.btnReview;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mais_jogos.R;
+import com.app.mais_jogos.Storage;
+import com.app.mais_jogos.user.PerfilUser;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,7 +35,7 @@ public class ReviewActivity extends AppCompatActivity {
 
 
     private static final String BASE_URL = "http://10.0.2.2:8080";
-    private static final String APP_CAFE = "APP_REVIEW";
+    private static final String APP_REVIEW = "App Review";
     List<Review> lista = new ArrayList<>();
     Button btnSalvar;
 
@@ -43,6 +45,12 @@ public class ReviewActivity extends AppCompatActivity {
     EditText txtAvaliacao;
 
     EditText txtTituloReview;
+    TextView errorReview;
+    TextView sucessReview;
+    ImageView btnVoltar;
+    Button btnVoltar2;
+    Gson gson = new Gson();
+    Storage storage = new Storage();
     class ResponseReview{
 
         private Integer id;
@@ -67,60 +75,95 @@ public class ReviewActivity extends AppCompatActivity {
         txtAvaliacao = findViewById(R.id.txtAvaliacao);
         txtDataPostagem = findViewById(R.id.txtDataPostagem);
         txtDescricao = findViewById(R.id.txtDescricao);
-        txtTituloReview = findViewById(R.id.editTextText5);
-        btnSalvar.setOnClickListener( e -> salvar());
-    }
+        txtTituloReview = findViewById(R.id.txtTituloReview);
+        errorReview = findViewById(R.id.errorReview);
+        sucessReview = findViewById(R.id.sucessReview);
+        btnVoltar = findViewById(R.id.imgBtnVoltarReview);
+        btnVoltar2 = findViewById(R.id.btnVoltarReview);
 
+        btnSalvar.setOnClickListener( e -> {
+            if(validaCampos()){
+                salvar();
+            }else{
+                errorReview.setText("Preencha todos os campos!");
+            }
+        });
+        btnVoltar.setOnClickListener(e ->{
+            Intent perfilUser = new Intent(this, PerfilUser.class);
+            startActivity(perfilUser);
+        });
+        btnVoltar2.setOnClickListener(e ->{
+            Intent perfilUser = new Intent(this, PerfilUser.class);
+            startActivity(perfilUser);
+        });
+    }
+    private boolean validaCampos(){
+        return txtDataPostagem.getText().length() != 0 &&
+                txtDescricao.getText().length() != 0 &&
+                txtAvaliacao.getText().length() != 0 &&
+                txtTituloReview.getText().length() != 0;
+    }
     private void salvar() {
-        Review c = new Review();
-        c.setDataReview(txtDataPostagem.getText().toString());
-        c.setDescricaoReview(txtDescricao.getText().toString());
-        c.setNotaReview(Double.parseDouble(txtAvaliacao.getText().toString()));
-        c.setIdJogo(1);
-        c.setTituloReview(txtTituloReview.getText().toString());
-        c.setIdUser(1);
+        SharedPreferences sp = this.getSharedPreferences("CADASTRO", MODE_PRIVATE);
+        String storageString = sp.getString("storage", null);
+        JsonObject jsonObject = gson.fromJson(storageString, JsonObject.class);
+        storage = gson.fromJson(jsonObject, Storage.class);
+        Review r = new Review();
+        r.setDataReview(txtDataPostagem.getText().toString());
+        r.setDescricaoReview(txtDescricao.getText().toString());
+        r.setNotaReview(Double.parseDouble(txtAvaliacao.getText().toString()));
+        r.setIdJogo(1);
+        r.setTituloReview(txtTituloReview.getText().toString());
+        r.setIdUser(Integer.valueOf(storage.getId()));
 
-        lista.add(c);
-        salvarAPI(c);
+        lista.add(r);
+        salvarAPI(r);
     }
 
 
 
-    public void salvarAPI(Review c) {
+    public void salvarAPI(Review r) {
+        Log.i(APP_REVIEW, "Token: "+storage.getToken());
+
         ExecutorService executor = Executors.newSingleThreadExecutor();
         // Handler handler = new Handler(Looper.getMainLooper());
         executor.execute(() -> {
-            Log.i(APP_CAFE, "Excutando request");
+            Log.i(APP_REVIEW, "Excutando request");
             OkHttpClient client = new OkHttpClient();
-            Gson gson = new Gson();
-            String cafeJson = gson.toJson(c);
+            String reviewJson = gson.toJson(r);
 
-            Log.i(APP_CAFE, "JSON Body: " + cafeJson);
-            RequestBody body = RequestBody.create(cafeJson,
+            Log.i(APP_REVIEW, "JSON Body: " + reviewJson);
+            RequestBody body = RequestBody.create(reviewJson,
                     MediaType.get("application/json"));
             Request request = new Request.Builder()
-                    .post(body)
                     .url(BASE_URL + "/api/review/salvar")
+                    .post(body)
                     .build();
             Call call = client.newCall(request);
-            Log.i(APP_CAFE, "Resquest feito no servidor");
-            try {
-                Response response = call.execute();
+            Log.i(APP_REVIEW, "Resquest feito no servidor");
+            try(Response response = call.execute()){
+                if (response.isSuccessful()) {
+                    String responseString = response.body().string();
+                    Log.i(APP_REVIEW, "Sucesso!:\n" + responseString);
 
-                String responseString = response.body().string();
-                Log.i("AdminCadastro","Sucesso!:\n" + responseString);
+                    ResponseReview responseReview = gson.fromJson(responseString, ResponseReview.class);
 
-                ResponseReview responseReview = gson.fromJson(responseString, ResponseReview.class);
+                    SharedPreferences sp = ReviewActivity.this.getSharedPreferences("cadastroReview", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putInt("id", responseReview.id);
+                    editor.apply();
 
-                SharedPreferences sp = this.getSharedPreferences("cadastroReview", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putInt("id", responseReview.id);
-                editor.apply();
+                    sucessReview.setText("Review cadastrada com sucesso!");
+                    Intent intent = new Intent(ReviewActivity.this, ReviewUser.class);
+                    startActivity(intent);
+                } else {
+                    errorReview.setText("Ocorreu um erro, tente novamente!");
+                    Log.e(APP_REVIEW, "Erro" + response.body().string() + " - " + response.code());
+                }
 
-                Intent intent = new Intent(this, ReviewUser.class);
-                startActivity(intent);
             } catch (IOException e) {
-                Log.e(APP_CAFE, "Erro", e);
+                Log.e(APP_REVIEW, "Erro", e);
+                errorReview.setText("Ocorreu um erro, tente novamente!");
                 throw new RuntimeException(e);
             }
         });

@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mais_jogos.R;
 import com.app.mais_jogos.SelectPlayer;
+import com.app.mais_jogos.user.PerfilUser;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -55,6 +57,8 @@ public class ReviewUser extends AppCompatActivity {
         ImageButton buttonUpd;
 
         ImageButton buttonExclu;
+        ImageView btnVoltar;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,27 +67,32 @@ public class ReviewUser extends AppCompatActivity {
         SharedPreferences sp = this.getSharedPreferences("cadastroReview", MODE_PRIVATE);
         int idReview = sp.getInt("id", 0);
 
-        txtTitulo = (TextView) findViewById(R.id.textView7);
-        txtDescricao = (TextView) findViewById(R.id.textView8);
-        txtData = (TextView) findViewById(R.id.textView11);
-        txtAvaliacao = (TextView) findViewById(R.id.textView10);
+        txtTitulo = findViewById(R.id.tituloReviewEditar);
+        txtDescricao = findViewById(R.id.txtDescricaoReviewEditar);
+        txtData = findViewById(R.id.dataReviewEditar);
+        txtAvaliacao = findViewById(R.id.notaReviewEditar);
+        btnVoltar = findViewById(R.id.imgVoltarReviewEditar);
 
         carregaDadosApi(idReview);
 
-        buttonUpd = findViewById(R.id.imageButton5);
+        buttonUpd = findViewById(R.id.btnEditarReview);
 
         buttonUpd.setOnClickListener(
               e  -> {
                   Intent intent = new Intent(this, EditReview.class);
                   startActivity(intent);
               });
-        buttonExclu = findViewById(R.id.aaaaaaaaaaaaaaaaaa);
+        buttonExclu = findViewById(R.id.imgDeleteReview);
 
         buttonExclu.setOnClickListener(
                 e -> {
                     carregarModalDelete(idReview);
                 }
         );
+        btnVoltar.setOnClickListener(e ->{
+            Intent perfilUser = new Intent(this, PerfilUser.class);
+            startActivity(perfilUser);
+        });
     }
 
     private void carregaDadosApi(int id){
@@ -97,20 +106,20 @@ public class ReviewUser extends AppCompatActivity {
             Request request = new Request.Builder().get().url(URL + "/listarReview/" + id).build();
             Call call = client.newCall(request);
 
-            try {
-                Response response = call.execute();
-                String responseString = response.body().string();
-                Log.i("ReviewUser","Sucesso!:\n" + responseString);
+            try(Response response = call.execute()){
+                if(response.isSuccessful()){
+                    String responseString = response.body().string();
+                    Log.i("ReviewUser","Sucesso!:\n" + responseString);
 
-                ReviewUser.ResponseReview reviewData = gson.fromJson(responseString, ReviewUser.ResponseReview.class);
-                txtTitulo.setText(reviewData.tituloReview);
-                txtData.setText(reviewData.dataReview);
-                txtDescricao.setText(reviewData.descricaoReview);
-                SharedPreferences sp = this.getSharedPreferences("cadastroReview", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putInt("id", reviewData.id);
-                editor.apply();
-
+                    ReviewUser.ResponseReview reviewData = gson.fromJson(responseString, ReviewUser.ResponseReview.class);
+                    txtTitulo.setText(reviewData.tituloReview);
+                    txtData.setText(reviewData.dataReview);
+                    txtDescricao.setText(reviewData.descricaoReview);
+                    SharedPreferences sp = this.getSharedPreferences("cadastroReview", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putInt("id", reviewData.id);
+                    editor.apply();
+                }
 
             } catch (IOException e) {
                 Log.i("ReviewUser", "Erro :(:\n" + e);
@@ -148,13 +157,14 @@ public class ReviewUser extends AppCompatActivity {
             Request request = new Request.Builder().delete().url(URL + "/deletarReview/" + id).build();
             Call call = client.newCall(request);
 
-            try {
-                Response response = call.execute();
-                String responseString = response.body().string();
-                Log.i("Review Deletada com sucesso","Sucesso!:\n" + responseString);
+            try(Response response = call.execute()){
+                if(response.isSuccessful()){
+                    String responseString = response.body().string();
+                    Log.i("Review Deletada com sucesso","Sucesso!:\n" + responseString);
 
-                Intent intent = new Intent(getApplicationContext(), SelectPlayer.class);
-                startActivity(intent);
+                    Intent intent = new Intent(getApplicationContext(), SelectPlayer.class);
+                    startActivity(intent);
+                }
             } catch (IOException e) {
                 Log.i("PerfilAdmin", "Erro :(:\n" + e);
                 throw  new RuntimeException(e);

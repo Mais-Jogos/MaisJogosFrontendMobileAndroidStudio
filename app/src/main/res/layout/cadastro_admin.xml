@@ -170,6 +170,29 @@
                 android:text="Cadastrar"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"/>
+
+            <TextView
+                android:id="@+id/lblJaTemContaAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Já tem uma conta?"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txtLoginCadastroAdmin2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:text="Faça login"
+                android:textColor="#7900fb"
+                android:textSize="14sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>

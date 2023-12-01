@@ -20,7 +20,7 @@
     <View
         android:id="@+id/infoPerfilUser"
         android:layout_width="0dp"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="128dp"
         android:layout_marginRight="30dp"
@@ -68,11 +68,11 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/infoPerfilUser"
         app:layout_constraintEnd_toEndOf="@+id/infoPerfilUser"
-        app:layout_constraintStart_toStartOf="@+id/infoPerfilUser">
+        app:layout_constraintStart_toStartOf="@+id/infoPerfilUser"
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfilDev">
 
         <TextView
             android:id="@+id/titleNomeUser"

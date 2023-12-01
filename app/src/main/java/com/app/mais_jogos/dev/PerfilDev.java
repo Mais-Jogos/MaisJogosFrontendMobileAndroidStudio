@@ -1,5 +1,6 @@
 package com.app.mais_jogos.dev;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,11 +10,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mais_jogos.R;
 import com.app.mais_jogos.SelectPlayer;
 import com.app.mais_jogos.Storage;
+import com.app.mais_jogos.admin.PerfilAdmin;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -54,10 +57,11 @@ public class PerfilDev extends AppCompatActivity {
         carregarPerfil();
 
         btnDelete.setOnClickListener(e ->{
-            deleteDev();
+            carregarModalDelete();
         });
 
         btnSave.setOnClickListener(e ->{
+            modalEditarInformacoes("Dados atualizados!");
             editDev();
         });
 
@@ -108,6 +112,36 @@ public class PerfilDev extends AppCompatActivity {
         }else{
             Log.i("Login", "Storage é null");
         }
+    }
+    private void carregarModalDelete(){
+        // Modal
+        AlertDialog.Builder confirmaExlusao = new AlertDialog.Builder(PerfilDev.this);
+        confirmaExlusao.setTitle("Atenção!!");
+        confirmaExlusao.setMessage("Tem certeza que deseja excluir a sua conta?\nEssa ação não pode ser desfeita!");
+        confirmaExlusao.setCancelable(false);
+
+        confirmaExlusao.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                deleteDev();
+            }
+        });
+
+        confirmaExlusao.setNegativeButton("Não", null);
+
+        confirmaExlusao.create().show();
+    }
+    private void modalEditarInformacoes(String texto){
+        AlertDialog.Builder confirmaEdicao = new AlertDialog.Builder(PerfilDev.this);
+        confirmaEdicao.setTitle("Perfil Dev");
+        confirmaEdicao.setMessage(texto);
+        confirmaEdicao.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Log.i(PERFIL_DEV, "Dados atualizados!");
+            }
+        });
+        confirmaEdicao.create().show();
     }
     public void deleteDev(){
         ExecutorService executor = Executors.newSingleThreadExecutor();

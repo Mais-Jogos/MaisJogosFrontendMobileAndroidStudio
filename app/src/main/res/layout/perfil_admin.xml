@@ -51,7 +51,8 @@
                     android:paddingRight="20dp"
                     android:paddingBottom="10dp"
                     android:text="SALVAR DADOS"
-                    android:textAllCaps="true" />
+                    android:textAllCaps="true"
+                    app:backgroundTint="@null"/>
 
                 <Button
                     android:id="@+id/btnExcluirAdmin"
@@ -66,7 +67,8 @@
                     android:paddingRight="20dp"
                     android:paddingBottom="10dp"
                     android:text="EXCLUIR CONTA"
-                    android:textAllCaps="true" />
+                    android:textAllCaps="true"
+                    app:backgroundTint="@null"/>
             </LinearLayout>
 
             <Button
@@ -80,7 +82,8 @@
                 android:paddingRight="20dp"
                 android:paddingBottom="10dp"
                 android:text="CADASTRAR AVATAR"
-                android:textAllCaps="true" />
+                android:textAllCaps="true"
+                app:backgroundTint="@null"/>
         </LinearLayout>
     </ScrollView>
 

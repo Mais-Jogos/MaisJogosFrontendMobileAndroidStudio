@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.app.mais_jogos.Login;
 import com.app.mais_jogos.R;
 
 public class CadastroDevPrimeiraEtapa extends AppCompatActivity {
@@ -24,8 +25,8 @@ public class CadastroDevPrimeiraEtapa extends AppCompatActivity {
     EditText dataDev;
     EditText sobreDev;
     Button btnNextDev;
+    TextView login;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +50,7 @@ public class CadastroDevPrimeiraEtapa extends AppCompatActivity {
         sobreDev = findViewById(R.id.txtSobreDev);
         btnNextDev = findViewById(R.id.btnNextDev);
         errorCadastroDev = findViewById(R.id.errorCadastroDev);
+        login = findViewById(R.id.txtLoginDev);
 
         btnNextDev.setOnClickListener(e -> {
             if (validar()){
@@ -60,6 +62,10 @@ public class CadastroDevPrimeiraEtapa extends AppCompatActivity {
             }else{
                 errorCadastroDev.setText("Preencha todos os campos!");
             }
+        });
+        login.setOnClickListener(e ->{
+            Intent loginDev = new Intent(this, Login.class);
+            startActivity(loginDev);
         });
     }
 

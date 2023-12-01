@@ -14,7 +14,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.app.mais_jogos.Login;
 import com.app.mais_jogos.R;
+
+import org.w3c.dom.Text;
 
 public class CadastroUserPrimeiraEtapa extends AppCompatActivity {
 
@@ -24,6 +27,7 @@ public class CadastroUserPrimeiraEtapa extends AppCompatActivity {
     EditText dataUser;
     EditText sobrenomeUser;
     Button btnNextUser;
+    TextView login;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -49,6 +53,7 @@ public class CadastroUserPrimeiraEtapa extends AppCompatActivity {
         sobrenomeUser = findViewById(R.id.txtSobrenomeUser);
         btnNextUser = findViewById(R.id.btnNextUser);
         errorCadastroUser = findViewById(R.id.errorCadastroUser);
+        login = findViewById(R.id.txtLoginUser);
 
         btnNextUser.setOnClickListener(e -> {
             if (validar()){
@@ -60,6 +65,10 @@ public class CadastroUserPrimeiraEtapa extends AppCompatActivity {
             }else{
                 errorCadastroUser.setText("Preencha todos os campos!");
             }
+        });
+        login.setOnClickListener(e ->{
+            Intent loginDev = new Intent(this, Login.class);
+            startActivity(loginDev);
         });
     }
 

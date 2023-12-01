@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.mais_jogos.R;
+import com.app.mais_jogos.Storage;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -45,6 +46,7 @@ public class CadastroAdmin extends AppCompatActivity {
     EditText inputConfirmarSenha;
     TextView erroInputs;
     Button btnCadastrar;
+    TextView login;
 
     private static final String URL = "http://10.0.2.2:8080/api/adm/salvar";
 
@@ -61,7 +63,7 @@ public class CadastroAdmin extends AppCompatActivity {
         inputConfirmarSenha = findViewById(R.id.txtSenhaConfirmaAdmin);
         erroInputs = findViewById(R.id.erroCadastroAdmin);
         btnCadastrar = findViewById(R.id.btnNextAdmin);
-
+        login = findViewById(R.id.txtLoginCadastroAdmin2);
 
         /* Title Gradient */
         TextView titlePage = findViewById(R.id.titleCadastroAdmin);
@@ -83,6 +85,10 @@ public class CadastroAdmin extends AppCompatActivity {
                 Log.i("cadastroAdmin", "tudo errado!");
                 inputErro("Erro ao preencher as informações!");
             }
+        });
+        login.setOnClickListener(e ->{
+            Intent loginAdmin = new Intent(this, LoginAdmin.class);
+            startActivity(loginAdmin);
         });
     }
 

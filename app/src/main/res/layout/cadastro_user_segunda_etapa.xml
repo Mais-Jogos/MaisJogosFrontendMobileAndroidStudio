@@ -151,4 +151,5 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@null" />
+
 </LinearLayout>

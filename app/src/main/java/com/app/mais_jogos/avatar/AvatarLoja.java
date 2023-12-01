@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +19,6 @@ import com.app.mais_jogos.admin.PerfilAdmin;
 import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.util.Vector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -39,10 +39,10 @@ public class AvatarLoja extends AppCompatActivity {
 
     EditText nome;
     EditText valor;
-
     Button editar;
     Button excluir;
-    @SuppressLint("WrongViewCast")
+    ImageView btnVoltar;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,12 +51,14 @@ public class AvatarLoja extends AppCompatActivity {
         SharedPreferences sp = this.getSharedPreferences("cadastroAvatar", MODE_PRIVATE);
         int idReview = sp.getInt("id", 0);
 
-        nome = (EditText) findViewById(R.id.editTextText23);
-        valor = (EditText) findViewById(R.id.editTextText20);
+        nome = findViewById(R.id.txtEditarNomeSkin);
+        valor = findViewById(R.id.txtEditarValorSkin);
+        editar = findViewById(R.id.btnEditarSkin);
+        excluir = findViewById(R.id.btnExcluirSkin);
+        btnVoltar = findViewById(R.id.imgVoltarSkinEditar);
 
         carregaDadosApi(idReview);
 
-        editar = findViewById(R.id.button21);
         editar.setOnClickListener(
                 e -> {
                     Avatar c = new Avatar();
@@ -65,12 +67,15 @@ public class AvatarLoja extends AppCompatActivity {
                     modalEditarInformacoes("Dados atualizados!");
                 }
         );
-        excluir = findViewById(R.id.button18);
         excluir.setOnClickListener(
                 e -> {
                     carregarModalDelete(idReview);
                 }
         );
+        btnVoltar.setOnClickListener(e ->{
+            Intent perfilAdmin = new Intent(this, PerfilAdmin.class);
+            startActivity(perfilAdmin);
+        });
     }
 
     private void modalEditarInformacoes(String texto){
@@ -104,8 +109,6 @@ public class AvatarLoja extends AppCompatActivity {
                 AvatarLoja.ResponseAvatar reviewData = gson.fromJson(responseString, AvatarLoja.ResponseAvatar.class);
                 nome.setText(reviewData.nome);
                 valor.setText(String.valueOf(reviewData.valor));
-
-
 
             } catch (IOException e) {
                 Log.i("ReviewUser", "Erro :(:\n" + e);
