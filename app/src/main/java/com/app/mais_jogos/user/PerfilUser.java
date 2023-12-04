@@ -131,8 +131,8 @@ public class PerfilUser extends AppCompatActivity {
 
                         Log.i(PERFIL_USER, "User resposta: " + ObjectJson);
                         Log.i(PERFIL_USER, "sucesso na requisição: " + response.code());
-                        SobreNomeUser.setText(usuario.getSobrenome());
-                        NomeUser.setText(usuario.getNome());
+                        runOnUiThread(() -> SobreNomeUser.setText(usuario.getSobrenome()));
+                        runOnUiThread(() -> NomeUser.setText(usuario.getNome()));
 
                     }else{
                         Log.i(PERFIL_USER, "url: "+ URL + storage.getId());

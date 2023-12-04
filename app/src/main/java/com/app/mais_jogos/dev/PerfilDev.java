@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -13,10 +14,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.app.mais_jogos.pix.CadastroPIX;
 import com.app.mais_jogos.R;
 import com.app.mais_jogos.SelectPlayer;
 import com.app.mais_jogos.Storage;
-import com.app.mais_jogos.admin.PerfilAdmin;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -37,6 +38,8 @@ public class PerfilDev extends AppCompatActivity {
     EditText NomeDev;
     ImageButton btnDelete;
     ImageButton btnSave;
+
+    Button btnRequerimento;
     Storage storage = new Storage();
     Dev desenvolvedor = new Dev();
     Gson gson = new Gson();
@@ -53,7 +56,7 @@ public class PerfilDev extends AppCompatActivity {
         ValorVendas = findViewById(R.id.txtValorVendas);
         btnSave = findViewById(R.id.btnPerfilUserSave);
         btnDelete = findViewById(R.id.btnPerfilUserDelete);
-
+        btnRequerimento = findViewById(R.id.btnRequerimento);
         carregarPerfil();
 
         btnDelete.setOnClickListener(e ->{
@@ -64,6 +67,13 @@ public class PerfilDev extends AppCompatActivity {
             editDev();
             modalEditarInformacoes("Dados atualizados!");
         });
+
+        btnRequerimento.setOnClickListener(
+                e-> {
+                    Intent intent = new Intent(PerfilDev.this, CadastroPIX.class);
+                    startActivity(intent);
+                }
+        );
 
     }
 
@@ -93,9 +103,9 @@ public class PerfilDev extends AppCompatActivity {
 
                         Log.i(PERFIL_DEV, "Dev resposta: " + ObjectJson);
                         Log.i(PERFIL_DEV, "sucesso na requisição: " + response.code());
-                        SobreDev.setText(desenvolvedor.getSobre());
-                        NomeDev.setText(desenvolvedor.getNome());
-                        ValorVendas.setText(String.valueOf(desenvolvedor.getValorVendas()));
+                        runOnUiThread(() ->  SobreDev.setText(desenvolvedor.getSobre()));
+                        runOnUiThread(() -> NomeDev.setText(desenvolvedor.getNome()));
+                        runOnUiThread(() -> ValorVendas.setText(String.valueOf(desenvolvedor.getValorVendas())));
 
                     }else{
                         Log.i(PERFIL_DEV, "url: "+ URL + storage.getId());

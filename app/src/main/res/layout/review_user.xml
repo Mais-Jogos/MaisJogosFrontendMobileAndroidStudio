@@ -42,28 +42,16 @@
 
     <ImageView
         android:id="@+id/containerReview"
-        android:layout_width="306dp"
-        android:layout_height="187dp"
+        android:layout_width="287dp"
+        android:layout_height="432dp"
+        android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imgJogoReviewEditar"
         app:layout_constraintTop_toBottomOf="@+id/titleReviewEditar"
-        app:layout_constraintVertical_bias="0.311"
+        app:layout_constraintVertical_bias="0.339"
         app:srcCompat="@drawable/background_with_border" />
-
-    <ImageView
-        android:id="@+id/btnAdicionarReview"
-        android:layout_width="48dp"
-        android:layout_height="45dp"
-        android:background="@drawable/gradient_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.386"
-        app:layout_constraintStart_toEndOf="@+id/titleReviewEditar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04"
-        app:srcCompat="@android:drawable/ic_menu_add" />
 
     <ImageView
         android:id="@+id/imgVoltarReviewEditar"
@@ -78,51 +66,98 @@
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <TextView
-        android:id="@+id/tituloReviewEditar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_bold"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/containerReview"
-        app:layout_constraintEnd_toEndOf="@+id/containerReview"
-        app:layout_constraintHorizontal_bias="0.57"
-        app:layout_constraintStart_toStartOf="@+id/containerReview"
-        app:layout_constraintTop_toTopOf="@+id/containerReview"
-        app:layout_constraintVertical_bias="0.125" />
-
-    <TextView
-        android:id="@+id/txtDescricaoReviewEditar"
-        android:layout_width="197dp"
-        android:layout_height="68dp"
-        android:text="Não esperava nada do game e fui surpreendida muito positivamente. "
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/titleDescricaoReviewEditar"
-        app:layout_constraintTop_toBottomOf="@+id/titleDescricaoReviewEditar" />
-
-    <TextView
         android:id="@+id/titleDescricaoReviewEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Minha descrição:"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/containerReview"
-        app:layout_constraintEnd_toEndOf="@+id/containerReview"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toEndOf="@+id/imgJogoReviewEditar"
-        app:layout_constraintTop_toTopOf="@+id/containerReview"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.338"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleReviewEditar"
+        app:layout_constraintVertical_bias="0.578" />
 
     <ImageView
         android:id="@+id/imgJogoReviewEditar"
-        android:layout_width="152dp"
-        android:layout_height="189dp"
+        android:layout_width="291dp"
+        android:layout_height="94dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintHorizontal_bias="0.591"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.404"
+        app:layout_constraintVertical_bias="0.161"
         app:srcCompat="@drawable/_1bd6f2345244a7bdd3b4db99f9398b2" />
+
+    <TextView
+        android:id="@+id/notaReviewEditar"
+        android:layout_width="27dp"
+        android:layout_height="21dp"
+        android:text=" 4/5"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.804"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.295" />
+
+    <TextView
+        android:id="@+id/vejaMaisReview"
+        android:layout_width="63dp"
+        android:layout_height="17dp"
+        android:text="Veja mais"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgJogoReviewEditar"
+        app:layout_constraintVertical_bias="0.183" />
+
+    <ImageView
+        android:id="@+id/starReview"
+        android:layout_width="35dp"
+        android:layout_height="21dp"
+        app:layout_constraintBottom_toBottomOf="@+id/containerReview"
+        app:layout_constraintEnd_toEndOf="@+id/containerReview"
+        app:layout_constraintHorizontal_bias="0.805"
+        app:layout_constraintStart_toStartOf="@+id/containerReview"
+        app:layout_constraintTop_toTopOf="@+id/containerReview"
+        app:layout_constraintVertical_bias="0.148"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <EditText
+        android:id="@+id/descInput"
+        android:layout_width="164dp"
+        android:layout_height="35dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.417"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.538" />
+
+    <EditText
+        android:id="@+id/dataInput"
+        android:layout_width="163dp"
+        android:layout_height="34dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/containerReview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleReviewEditar"
+        app:layout_constraintVertical_bias="0.826" />
 
     <TextView
         android:id="@+id/titleDataReviewEditar"
@@ -133,89 +168,54 @@
         android:textSize="16px"
         app:layout_constraintBottom_toBottomOf="@+id/containerReview"
         app:layout_constraintEnd_toEndOf="@+id/containerReview"
-        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="@+id/containerReview"
         app:layout_constraintTop_toTopOf="@+id/containerReview"
-        app:layout_constraintVertical_bias="0.86" />
+        app:layout_constraintVertical_bias="0.679" />
 
-    <ImageButton
-        android:id="@+id/imgDeleteReview"
-        android:layout_width="29dp"
-        android:layout_height="29dp"
-        android:background="@drawable/gradient_button"
-        android:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/containerReview"
-        app:layout_constraintEnd_toEndOf="@+id/containerReview"
-        app:layout_constraintHorizontal_bias="0.653"
-        app:layout_constraintStart_toEndOf="@+id/imgJogoReviewEditar"
-        app:layout_constraintTop_toTopOf="@+id/containerReview"
-        app:layout_constraintVertical_bias="0.949"
-        app:srcCompat="@android:drawable/ic_menu_delete" />
-
-    <TextView
-        android:id="@+id/notaReviewEditar"
-        android:layout_width="27dp"
-        android:layout_height="21dp"
-        android:text=" 4/5"
+    <EditText
+        android:id="@+id/tituloInput"
+        android:layout_width="147dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:inputType="text"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/containerReview"
-        app:layout_constraintEnd_toEndOf="@+id/containerReview"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toEndOf="@+id/imgJogoReviewEditar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/containerReview"
-        app:layout_constraintVertical_bias="0.114" />
+        app:layout_constraintVertical_bias="0.281" />
 
-    <ImageButton
-        android:id="@+id/btnEditarReview"
-        android:layout_width="29dp"
-        android:layout_height="29dp"
-        android:background="@drawable/gradient_button"
-        android:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/containerReview"
-        app:layout_constraintEnd_toEndOf="@+id/containerReview"
-        app:layout_constraintHorizontal_bias="0.927"
-        app:layout_constraintStart_toStartOf="@+id/containerReview"
+    <LinearLayout
+        android:layout_width="247dp"
+        android:layout_height="41dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/containerReview"
-        app:layout_constraintVertical_bias="0.949"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:layout_constraintVertical_bias="0.706">
 
-    <TextView
-        android:id="@+id/vejaMaisReview"
-        android:layout_width="63dp"
-        android:layout_height="17dp"
-        android:text="Veja mais"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/containerReview"
-        app:layout_constraintEnd_toEndOf="@+id/containerReview"
-        app:layout_constraintHorizontal_bias="0.887"
-        app:layout_constraintStart_toEndOf="@+id/imgJogoReviewEditar"
-        app:layout_constraintTop_toTopOf="@+id/containerReview"
-        app:layout_constraintVertical_bias="0.741" />
+        <ImageButton
+            android:id="@+id/btnEditarReview"
+            android:layout_width="105dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/gradient_button"
+            android:backgroundTint="@null"
+            app:srcCompat="@android:drawable/ic_menu_edit" />
 
-    <TextView
-        android:id="@+id/dataReviewEditar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="20/11"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="16px"
-        app:layout_constraintBottom_toBottomOf="@+id/titleDataReviewEditar"
-        app:layout_constraintStart_toEndOf="@+id/titleDataReviewEditar"
-        app:layout_constraintTop_toTopOf="@+id/titleDataReviewEditar" />
-
-    <ImageView
-        android:id="@+id/starReview"
-        android:layout_width="35dp"
-        android:layout_height="21dp"
-        app:layout_constraintBottom_toBottomOf="@+id/containerReview"
-        app:layout_constraintEnd_toEndOf="@+id/containerReview"
-        app:layout_constraintHorizontal_bias="0.985"
-        app:layout_constraintStart_toStartOf="@+id/containerReview"
-        app:layout_constraintTop_toTopOf="@+id/containerReview"
-        app:layout_constraintVertical_bias="0.114"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        <ImageButton
+            android:id="@+id/imgDeleteReview"
+            android:layout_width="103dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/gradient_button"
+            android:backgroundTint="@null"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

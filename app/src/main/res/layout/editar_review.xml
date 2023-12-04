@@ -32,96 +32,15 @@
         app:srcCompat="@drawable/_1bd6f2345244a7bdd3b4db99f9398b2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="349dp"
-        android:layout_height="34dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.435"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTituloReview">
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="129dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView25"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.476">
-
-            <ImageView
-                android:id="@+id/star1"
-                android:layout_width="23dp"
-                android:layout_height="21dp"
-                app:srcCompat="@android:drawable/btn_star_big_on" />
-
-            <ImageView
-                android:id="@+id/star2"
-                android:layout_width="23dp"
-                android:layout_height="21dp"
-                app:srcCompat="@android:drawable/btn_star_big_on" />
-
-            <ImageView
-                android:id="@+id/star3"
-                android:layout_width="23dp"
-                android:layout_height="21dp"
-                app:srcCompat="@android:drawable/btn_star" />
-
-            <ImageView
-                android:id="@+id/star4"
-                android:layout_width="23dp"
-                android:layout_height="21dp"
-                app:srcCompat="@android:drawable/btn_star" />
-
-            <ImageView
-                android:id="@+id/star5"
-                android:layout_width="23dp"
-                android:layout_height="21dp"
-                app:srcCompat="@android:drawable/btn_star" />
-
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/txtAvaliacao"
-            android:layout_width="55dp"
-            android:layout_height="43dp"
-            android:layout_weight="1"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="number"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout3"
-            app:layout_constraintTop_toTopOf="@+id/linearLayout3" />
-
-        <TextView
-            android:id="@+id/textView25"
-            android:layout_width="78dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="16dp"
-            android:text="Avaliação"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/reviewVoltarSalvar"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="20dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.695"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
@@ -168,112 +87,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/Data"
-        android:layout_width="363dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.416"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
-        <TextView
-            android:id="@+id/titleDescricaoReview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Minha descrição"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.534"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/txtDataPostagem"
-            android:layout_width="76dp"
-            android:layout_height="44dp"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="date"
-            android:textColor="#FFFFFF"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="@+id/titleDataReview"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/titleDataReview" />
-
-        <TextView
-            android:id="@+id/titleDataReview"
-            android:layout_width="155dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="72dp"
-            android:text="Data de postagem:"
-            android:textColor="#FBFBFB"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleDescricaoReview" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/txtReview"
-        android:layout_width="0dp"
-        android:layout_height="212dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/errorReview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Data"
-        app:layout_constraintVertical_bias="0.0">
-
-        <EditText
-            android:id="@+id/txtDescricao"
-            android:layout_width="345dp"
-            android:layout_height="157dp"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:gravity="top|left"
-            android:inputType="textMultiLine"
-            android:maxLines="6"
-            android:textAlignment="textStart"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnExcluirReview"
-            android:layout_width="112dp"
-            android:layout_height="35dp"
-            android:layout_marginEnd="108dp"
-            android:layout_marginBottom="4dp"
-            android:background="@drawable/gradient_button"
-            android:text="Excluir"
-            android:textSize="10sp"
-            app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtDescricao"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <ImageView
-            android:id="@+id/imgExcluirReview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnExcluirReview"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btnExcluirReview"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@android:drawable/ic_menu_delete" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ImageButton
         android:id="@+id/imgBtnVoltarReview"
         android:layout_width="wrap_content"
@@ -297,6 +110,7 @@
         android:id="@+id/txtTituloReview"
         android:layout_width="115dp"
         android:layout_height="36dp"
+        android:layout_marginTop="64dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="text"
@@ -304,8 +118,22 @@
         android:textColor="#FFFFFF"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgJogoReview" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titulo"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/txtTituloReview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgJogoReview"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/errorReview"
@@ -327,5 +155,142 @@
         app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="659dp" />
+
+    <TextView
+        android:id="@+id/titleDataReview"
+        android:layout_width="126dp"
+        android:layout_height="37dp"
+        android:text="Data de postagem:"
+        android:textColor="#FBFBFB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.684" />
+
+    <EditText
+        android:id="@+id/txtDataPostagem"
+        android:layout_width="76dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:inputType="date"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.713" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="89dp"
+        android:layout_height="15dp"
+        android:text="Avaliação"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgJogoReview"
+        app:layout_constraintVertical_bias="0.282" />
+
+    <EditText
+        android:id="@+id/txtAvaliacao"
+        android:layout_width="55dp"
+        android:layout_height="43dp"
+        android:layout_weight="1"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:inputType="number"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgJogoReview"
+        app:layout_constraintVertical_bias="0.336" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="129dp"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgJogoReview"
+        app:layout_constraintVertical_bias="0.37">
+
+        <ImageView
+            android:id="@+id/star1"
+            android:layout_width="23dp"
+            android:layout_height="21dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+        <ImageView
+            android:id="@+id/star2"
+            android:layout_width="23dp"
+            android:layout_height="21dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+        <ImageView
+            android:id="@+id/star3"
+            android:layout_width="23dp"
+            android:layout_height="21dp"
+            app:srcCompat="@android:drawable/btn_star" />
+
+        <ImageView
+            android:id="@+id/star4"
+            android:layout_width="23dp"
+            android:layout_height="21dp"
+            app:srcCompat="@android:drawable/btn_star" />
+
+        <ImageView
+            android:id="@+id/star5"
+            android:layout_width="18dp"
+            android:layout_height="21dp"
+            app:srcCompat="@android:drawable/btn_star" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/txtDescricao"
+        android:layout_width="232dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:gravity="top|left"
+        android:inputType="textMultiLine"
+        android:maxLines="6"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgJogoReview"
+        app:layout_constraintVertical_bias="0.86" />
+
+    <TextView
+        android:id="@+id/titleDescricaoReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minha descrição"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/txtDescricao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgJogoReview"
+        app:layout_constraintVertical_bias="0.996" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

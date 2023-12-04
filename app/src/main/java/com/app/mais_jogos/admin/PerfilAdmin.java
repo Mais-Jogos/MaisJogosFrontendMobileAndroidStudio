@@ -103,9 +103,9 @@ public class PerfilAdmin extends AppCompatActivity {
                 Log.i("PerfilAdmin","Sucesso!:\n" + responseString);
 
                 PerfilAdmin.ResponseAdmin adminData = gson.fromJson(responseString, PerfilAdmin.ResponseAdmin.class);
-                inputNome.setText(adminData.nome);
-                inputEmail.setText(adminData.email);
-                inputSenha.setText(adminData.password);
+                runOnUiThread(() -> inputNome.setText(adminData.nome));
+                runOnUiThread(() -> inputEmail.setText(adminData.email));
+                runOnUiThread(() -> inputSenha.setText(adminData.password));
 
             } catch (IOException e) {
                 Log.i("PerfilAdmin", "Erro :(:\n" + e);

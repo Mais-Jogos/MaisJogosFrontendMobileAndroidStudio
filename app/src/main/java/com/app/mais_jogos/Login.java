@@ -83,7 +83,7 @@ public class Login extends AppCompatActivity {
         return senhaLogin.getText().length() != 0 &&
                 emailLogin.getText().length() != 0;
     }
-    private void salvar(){
+    private void salvar() {
         SharedPreferences sp = this.getSharedPreferences("CADASTRO", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         DadosLogin userLogin = new DadosLogin(
@@ -91,10 +91,10 @@ public class Login extends AppCompatActivity {
                 senhaLogin.getText().toString()
         );
         String loginJson = gson.toJson(userLogin);
-        Log.i(LOGIN, "Login json "+ loginJson);
+        Log.i(LOGIN, "Login json " + loginJson);
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.execute(() ->{
+        executor.execute(() -> {
             OkHttpClient client = new OkHttpClient();
             RequestBody body = RequestBody.create(loginJson, MediaType.get("application/json"));
             Request request = new Request.Builder()
@@ -102,7 +102,8 @@ public class Login extends AppCompatActivity {
                     .url(URL)
                     .build();
             Call call = client.newCall(request);
-            try(Response response = call.execute()){
+
+            try (Response response = call.execute()) {
                 if (response.isSuccessful()) {
                     String responseBody = response.body().string();
                     Log.i(LOGIN, "Response token " + responseBody);
@@ -118,25 +119,31 @@ public class Login extends AppCompatActivity {
                     editor.putString("storage", storageJson);
                     editor.apply();
 
-                    sucessLogin.setText("Você foi logado!");
-                    if(storage.getType().contains("dev")){
-                        Intent perfilDev = new Intent(this, PerfilDev.class);
-                        startActivity(perfilDev);
-                    }else if(storage.getType().contains("user")){
-                        Intent perfilUser = new Intent(this, PerfilUser.class);
-                        startActivity(perfilUser);
-                    }else{
-                        Log.i(LOGIN, "Tipo não encontrado: "+ storage.getType());
-                        erroLogin.setText("Tipo não encontrado!");
-                    }
+                    runOnUiThread(() -> {
+                        sucessLogin.setText("Você foi logado!");
+                        if (storage.getType().contains("dev")) {
+                            Intent perfilDev = new Intent(Login.this, PerfilDev.class);
+                            startActivity(perfilDev);
+                        } else if (storage.getType().contains("user")) {
+                            Intent perfilUser = new Intent(Login.this, PerfilUser.class);
+                            startActivity(perfilUser);
+                        } else {
+                            Log.i(LOGIN, "Tipo não encontrado: " + storage.getType());
+                            erroLogin.setText("Tipo não encontrado!");
+                        }
+                    });
                 } else {
                     Log.e(LOGIN, "Erro na requisição: " + response.code());
-                    erroLogin.setText("Ocorreu um erro, tente novamente!");
+                    runOnUiThread(() -> {
+                        erroLogin.setText("Ocorreu um erro, tente novamente!");
+                    });
                 }
 
-            }catch(IOException err){
+            } catch (IOException err) {
                 Log.e(LOGIN, "Erro", err);
-                erroLogin.setText("Ocorreu um erro, tente novamente!");
+                runOnUiThread(() -> {
+                    erroLogin.setText("Ocorreu um erro, tente novamente!");
+                });
                 throw new RuntimeException(err);
             }
         });

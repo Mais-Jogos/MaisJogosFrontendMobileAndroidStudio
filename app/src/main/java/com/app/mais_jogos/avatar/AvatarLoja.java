@@ -107,8 +107,8 @@ public class AvatarLoja extends AppCompatActivity {
                 Log.i("ReviewUser","Sucesso!:\n" + responseString);
 
                 AvatarLoja.ResponseAvatar reviewData = gson.fromJson(responseString, AvatarLoja.ResponseAvatar.class);
-                nome.setText(reviewData.nome);
-                valor.setText(String.valueOf(reviewData.valor));
+                runOnUiThread(() -> nome.setText(reviewData.nome));
+                runOnUiThread(() -> valor.setText(String.valueOf(reviewData.valor)));
 
             } catch (IOException e) {
                 Log.i("ReviewUser", "Erro :(:\n" + e);
