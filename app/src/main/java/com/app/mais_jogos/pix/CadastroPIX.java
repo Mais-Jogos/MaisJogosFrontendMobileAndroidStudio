@@ -46,7 +46,8 @@ public class CadastroPIX extends AppCompatActivity {
     Gson gson = new Gson();
 
     Storage storage = new Storage();
-
+    String txtNomePix;
+    String txtChavePix;
     class ResponseCadastroPix{
         private Integer id;
         private String pix;
@@ -63,7 +64,9 @@ public class CadastroPIX extends AppCompatActivity {
         txtChavePix = findViewById(R.id.txtChavePix);
         erroCadastroChavePix = findViewById(R.id.erroCadastroChavePix);
 
-
+        txtNomePix = txtNomePix.getText().toString();
+        txtChavePix = txtChavePix.getText().toString();
+    
         btnSalvar.setOnClickListener(
                 e -> {
                     if(validarCampos()){
